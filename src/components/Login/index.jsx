@@ -1,9 +1,9 @@
 import './login.css';
+import React from 'react';
 
 const Login = () => {
-  return 
-  (
-    <div className="container">
+  return( 
+  <div className="container">
         <div className="logo">
             <h1>Moncker App</h1>
         </div>
@@ -30,8 +30,7 @@ const Login = () => {
                   <button className="btnSignUp">Sign In</button>
               </div>
         </div>
-    </div>
-  )
+    </div>)
 };
 
 export default Login;
