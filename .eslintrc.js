@@ -20,6 +20,7 @@ module.exports = {
     'arrow-body-style': 'off',
     'prefer-const': 'off',
     'no-underscore-dangle': 'off',
+    'jsx-a11y/label-has-for': 0,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'default-param-last': 'off',
   },

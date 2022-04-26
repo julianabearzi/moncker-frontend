@@ -1,5 +1,6 @@
-import './login.css';
 import React from 'react';
+import './login.css';
+import Button from '@material-ui/core/Button';
 
 const Login = () => {
   return( 
@@ -10,24 +11,28 @@ const Login = () => {
         <div className="loginBox">
           <div className="signIn">
                   <h1>Sign In</h1>
-                  <label for="username">Username</label>
-                  <input 
-                    type="text" 
-                    id="username" 
-                    name="username" 
-                  />
-                  <label for="password">Password</label>
-                  <input 
-                    type="text" 
-                    id="password" 
-                    name="password" 
-                  />
-                  <button>Sign In</button>
+                  <form>
+                    <label htmlFor="username">Username
+                      <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                      />
+                    </label>
+                    <label htmlFor="password">Password
+                      <input 
+                        type="text" 
+                        id="password" 
+                        name="password" 
+                      />
+                    </label>
+                    <Button variant="contained" color="primary">Sign In</Button>
+                  </form>
               </div>
               <div className="signUp">
                   <h1>Welcome to login</h1>
-                  <h3>Don't have an account?</h3>
-                  <button className="btnSignUp">Sign In</button>
+                  <h3>Dont have an account?</h3>
+                  <Button/>
               </div>
         </div>
     </div>)
