@@ -1,13 +1,36 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
 .registerBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 25%;
-  height: 40%;
-  background-color: #cdeea0;
+  height: 50%;
+  background-color: #1bfd9c;
 }
 
 .registerBox h1 {
   color: black;
+}
+
+@media (max-width: 1200px) {
+  .registerBox {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .registerBox {
+    width: 80%;
+    height: 50%;
+  }
 }

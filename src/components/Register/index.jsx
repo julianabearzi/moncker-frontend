@@ -2,13 +2,14 @@ import React from 'react';
 import './register.css';
 import FormControl from '@mui/material/FormControl';
 import { TextField } from '@material-ui/core';
+import Button from '@mui/material/Button';
 
 const Register = () => {
   return( 
     <div className="container">
           <div className="registerBox">
             <h1>Register</h1>
-            <FormControl sx={{ width: '50ch' }}>
+            <FormControl>
             <TextField 
               id="outlined-basic" 
               label="Email" 
@@ -28,6 +29,10 @@ const Register = () => {
               variant="outlined"
               margin="dense" 
             />
+            <br/>
+            <Button variant="contained" margin="dense" >Register</Button>
+            <br/>
+            <Button variant="outlined" color="error">Cancel</Button>
             </FormControl>
           </div>
     </div>
