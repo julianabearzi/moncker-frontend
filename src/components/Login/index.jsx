@@ -26,13 +26,14 @@ const Login = () => {
                         name="password" 
                       />
                     </label>
-                    <Button variant="contained" color="primary">Sign In</Button>
+                    <br /><br /><br />
                   </form>
+                  <Button variant="contained" color="primary">Sign In</Button>
               </div>
               <div className="signUp">
                   <h1>Welcome to login</h1>
                   <h3>Dont have an account?</h3>
-                  <Button/>
+                  <Button color="primary">REGISTER</Button>
               </div>
         </div>
     </div>)
