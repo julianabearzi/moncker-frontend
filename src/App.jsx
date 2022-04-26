@@ -1,7 +1,12 @@
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routing from './routes/Routing';
+
 function App() {
   return (
-    <div className="App">
-      <p>App</p>
+    <div>
+      <Router>
+        <Routing />
+      </Router>
     </div>
   );
 }
