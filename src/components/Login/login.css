@@ -6,12 +6,11 @@
   width: 100vw;
   height: 100vh;
   background-color: #17161d;
-  font-family: 'Roboto', sans-serif;
 }
 
 .logo {
-  color: #1bfd9c;
-  font-size: 40px;
+  color: #95d64a;
+  font-size: 30px;
 }
 
 .loginBox {
@@ -19,7 +18,6 @@
   width: 45%;
   height: 55%;
   background-color: #101014;
-  font-family: 'Lato', sans-serif;
 }
 
 .signIn {
@@ -29,11 +27,12 @@
   width: 50%;
   height: 100%;
   background-color: #101014;
-  color: #1bfd9c;
+  color: #95d64a;
 }
 
 .signIn h1 {
   font-weight: 100;
+  font-size: 1.5rem;
 }
 
 form {
@@ -47,7 +46,7 @@ form {
 .signIn label {
   height: 30px;
   width: 80%;
-  margin: 10px;
+  margin: 15px;
   padding: 10px;
 }
 
@@ -55,7 +54,6 @@ form {
   height: 30px;
   width: 90%;
   border-radius: 10px;
-  font-family: 'Lato', sans-serif;
   margin-top: 10px;
   margin-left: 20px;
   font-size: 20px;
@@ -68,20 +66,20 @@ form {
   align-items: center;
   width: 50%;
   height: 100%;
-  background-color: #1bfd9c;
+  background-color: #95d64a;
 }
 
 @media (max-width: 1300px) {
   .container {
     height: auto;
+    overflow-y: hidden;
   }
   .loginBox {
     display: flex;
     flex-direction: column;
     width: 45%;
-    height: auto;
+    height: 100vh;
     background-color: #101014;
-    font-family: 'Lato', sans-serif;
   }
 
   .signIn {
@@ -103,9 +101,8 @@ form {
     display: flex;
     flex-direction: column;
     width: 75%;
-    height: auto;
+    height: 100vh;
     background-color: #101014;
-    font-family: 'Lato', sans-serif;
     border-radius: 40px;
   }
 
