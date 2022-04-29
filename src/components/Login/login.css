@@ -43,18 +43,12 @@ form {
   width: 100%;
 }
 
-.signIn label {
-  height: 30px;
-  width: 80%;
-  margin: 15px;
-  padding: 10px;
-}
-
-.signIn input {
+.inputText {
   height: 30px;
   width: 90%;
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 1rem;
+  margin-bottom: 10px;
   margin-left: 20px;
   font-size: 20px;
 }

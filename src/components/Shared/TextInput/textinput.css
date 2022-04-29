@@ -1,0 +1,18 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputField {
+  background-color: white;
+  margin-bottom: 2rem;
+}
+
+.inputLabel {
+  margin-right: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+.inputError {
+  color: white;
+  font-size: 0.8rem;
+}

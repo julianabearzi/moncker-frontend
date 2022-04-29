@@ -1,42 +1,104 @@
 import React from 'react';
+import { Form, Field } from 'react-final-form';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import Alert from '@mui/material/Alert';
+import LinearProgress from '@mui/material/LinearProgress';
+import { required } from '../../utils/validations';
+import Button from '../Shared/Button';
+import TextInput from '../Shared/TextInput';
+import { logIn as logInAction } from '../../redux/actions/authUsersActions';
 import './login.css';
-import Button from '@material-ui/core/Button';
 
-const Login = () => {
-  return( 
-  <div className="container">
-        <div className="logo">
-            <h1>Moncker App</h1>
+const Login = ({ error, logIn, isLoading }) => {
+  const onSubmitLogin = (values) => {
+    logIn(values);
+  };
+  return (
+    <div className="container">
+      <div className="logo">
+        <h1>Moncker App</h1>
+      </div>
+      <div className="loginBox">
+        <div className="signIn">
+          <h1>Sign In</h1>
+          <Form
+            onSubmit={onSubmitLogin}
+            initialValues={{
+              email: '',
+              password: '',
+            }}
+            render={({ handleSubmit, pristine, submitting }) => (
+              <form onSubmit={handleSubmit}>
+                <div className="inputText">
+                  <Field
+                    name="email"
+                    component={TextInput}
+                    placeholder="Email"
+                    validate={required}
+                  />
+                </div>
+                <div className="inputText">
+                  <Field
+                    type="password"
+                    id="password"
+                    name="password"
+                    component={TextInput}
+                    placeholder="Password"
+                    validate={required}
+                  />
+                </div>
+                <br />
+                <br />
+                <br />
+                {isLoading ? (
+                  <LinearProgress />
+                ) : (
+                  <Button
+                    btnLabel="Sign in"
+                    type="submit"
+                    disabled={pristine || submitting}
+                  />
+                )}
+                {error && (
+                  <div>
+                    <Alert
+                      sx={{
+                        paddingTop: '0rem',
+                        paddingBottom: '0rem',
+                      }}
+                      severity="error"
+                    >
+                      Invalid Login Credentials
+                    </Alert>
+                  </div>
+                )}
+              </form>
+            )}
+          />
         </div>
-        <div className="loginBox">
-          <div className="signIn">
-                  <h1>Sign In</h1>
-                  <form>
-                    <label htmlFor="email">Email
-                      <input 
-                        type="text" 
-                        id="email" 
-                        name="email" 
-                      />
-                    </label>
-                    <label htmlFor="password">Password
-                      <input 
-                        type="text" 
-                        id="password" 
-                        name="password" 
-                      />
-                    </label>
-                    <br /><br /><br />
-                  </form>
-                  <Button variant="contained" color="primary">Sign In</Button>
-              </div>
-              <div className="signUp">
-                  <h1>Welcome to login</h1>
-                  <h3>Dont have an account?</h3>
-                  <Button color="primary">REGISTER</Button>
-              </div>
+        <div className="signUp">
+          <h1>Welcome to login</h1>
+          <h3>Dont have an account?</h3>
+          <Button btnLabel="REGISTER " />
         </div>
-    </div>)
+      </div>
+    </div>
+  );
 };
 
-export default Login;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      logIn: logInAction,
+    },
+    dispatch
+  );
+};
+
+const mapStateToProps = (state) => ({
+  isLoading: state.auth.isLoading,
+  error: state.auth.error,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
