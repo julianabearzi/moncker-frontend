@@ -1,11 +1,37 @@
 import React from 'react';
 import './menu.css';
+import { BiHomeCircle,BiCompass,BiSearch,BiCalculator,BiMoney,BiLogOut } from "react-icons/bi";
 
 const MenuBar = () => {
   return (
   <div className="menuContainer">
     <div className="navbar">
-      asd
+      <div className="icons">
+        <BiHomeCircle
+          size="40px"
+          color="grey"
+         />
+        <BiCompass
+          size="40px"
+          color="grey"
+        />
+        <BiSearch
+          size="40px"
+          color="grey"
+        />
+        <BiCalculator
+          size="40px"
+          color="grey"
+        />
+        <BiMoney
+          size="40px"
+          color="grey"
+        />
+        <BiLogOut
+          size="40px"
+          color="grey"
+        />
+      </div>
     </div>
   </div>
   )
