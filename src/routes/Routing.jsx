@@ -9,7 +9,6 @@ import Register from '../components/Register';
 import PrivateRoute from './PrivateRoute';
 import RoutePublic from './PublicRoute';
 import Profile from '../components/Profile';
-import Menu from '../components/Layout/MenuBar';
 import { revalidateToken as revalidateTokenAction } from '../redux/actions/authUsersActions';
 
 const Routing = ({ revalidateToken, isLoading }) => {
@@ -33,7 +32,6 @@ const Routing = ({ revalidateToken, isLoading }) => {
       </Route>
 
       <Route path="*" element={<Navigate to="/home" />} />
-      <Route path="/menu" element={<Menu />} />
     </Routes>
   );
 };
