@@ -2,10 +2,8 @@ import {
   LOG_IN_FETCHING,
   LOG_IN_FULFILLED,
   LOG_IN_REJECTED,
-  /*  REGISTER_FETCHING,
-  REGISTER_FULFILLED,
-  REGISTER_REJECTED,
-  LOG_OUT, */
+  REVALIDATE_TOKEN_FETCHING,
+  REVALIDATE_TOKEN_FINISHED,
 } from '../types/authTypes';
 
 const URL = process.env.REACT_APP_BACKEND_URL;
@@ -44,6 +42,39 @@ export const logIn = (values) => (dispatch) => {
     })
     .catch(() => {
       dispatch(loginRejected());
+    });
+};
+
+export const revalidateTokenFetching = () => ({
+  type: REVALIDATE_TOKEN_FETCHING,
+});
+
+export const revalidateTokenFinished = () => ({
+  type: REVALIDATE_TOKEN_FINISHED,
+});
+
+export const revalidateToken = () => (dispatch) => {
+  const token = localStorage.getItem('token') || '';
+  dispatch(revalidateTokenFetching());
+  return fetch(`${URL}/api/users/renew`, {
+    headers: {
+      Authorization: token,
+    },
+  })
+    .then((data) => data.json())
+    .then((response) => {
+      if (response.token !== undefined) {
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('token-init-date', new Date().getTime());
+        dispatch(
+          loginFulfilled(response._id, response.email, response.isAdmin)
+        );
+      } else {
+        dispatch(revalidateTokenFinished());
+      }
+    })
+    .catch(() => {
+      dispatch(revalidateTokenFinished());
     });
 };
 

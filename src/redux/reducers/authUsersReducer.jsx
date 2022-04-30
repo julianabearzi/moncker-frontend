@@ -2,6 +2,8 @@ import {
   LOG_IN_FETCHING,
   LOG_IN_FULFILLED,
   LOG_IN_REJECTED,
+  REVALIDATE_TOKEN_FETCHING,
+  REVALIDATE_TOKEN_FINISHED,
   /*   REGISTER_FETCHING,
   REGISTER_FULFILLED,
   REGISTER_REJECTED,
@@ -13,7 +15,7 @@ const initialState = {
   authenticated: false,
   _id: null,
   email: null,
-  isAdmin: false,
+  isAdmin: null,
   error: false,
 };
 
@@ -48,6 +50,26 @@ const authReducer = (state = initialState, action) => {
         email: null,
         isAdmin: false,
         error: true,
+      };
+    case REVALIDATE_TOKEN_FETCHING:
+      return {
+        ...state,
+        isLoading: true,
+        authenticated: false,
+        _id: null,
+        email: null,
+        isAdmin: false,
+        error: true,
+      };
+    case REVALIDATE_TOKEN_FINISHED:
+      return {
+        ...state,
+        isLoading: false,
+        authenticated: false,
+        _id: null,
+        email: null,
+        isAdmin: false,
+        error: false,
       };
     /*   case SIGN_UP_FETCHING:
       return {

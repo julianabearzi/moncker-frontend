@@ -1,26 +1,54 @@
-import React from 'react';
+import { useEffect, React } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Layout from '../components/Layout';
+import LinearProgress from '@mui/material/LinearProgress';
 import Home from '../components/Home';
 import Login from '../components/Login';
 import Register from '../components/Register';
+import PrivateRoute from './PrivateRoute';
+import RoutePublic from './PublicRoute';
+import Profile from '../components/Profile';
+import Menu from '../components/Layout/MenuBar';
+import { revalidateToken as revalidateTokenAction } from '../redux/actions/authUsersActions';
 
-const Routing = () => {
+const Routing = ({ revalidateToken, isLoading }) => {
+  useEffect(() => {
+    revalidateToken();
+  }, []);
+
+  if (isLoading) {
+    return <LinearProgress />;
+  }
   return (
     <Routes>
+      <Route element={<RoutePublic />}>
+        <Route path="home" element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+      </Route>
+
+      <Route element={<PrivateRoute />}>
+        <Route path="profile" element={<Profile />} />
+      </Route>
+
       <Route path="*" element={<Navigate to="/home" />} />
-      <Route
-        path="/home"
-        element={
-          <Layout>
-            <Home />
-          </Layout>
-        }
-      />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      <Route path="/menu" element={<Menu />} />
     </Routes>
   );
 };
 
-export default Routing;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      revalidateToken: revalidateTokenAction,
+    },
+    dispatch
+  );
+};
+
+const mapStateToProps = (state) => ({
+  isLoading: state.auth.isLoading,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Routing);
