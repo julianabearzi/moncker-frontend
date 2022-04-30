@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import Home from '../components/Home';
 import Login from '../components/Login';
 import Register from '../components/Register';
+import Menu from '../components/Layout/MenuBar';
 
 const Routing = () => {
   return (
@@ -19,6 +20,7 @@ const Routing = () => {
       />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/menu" element={<Menu />} />
     </Routes>
   );
 };
