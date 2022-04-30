@@ -11,31 +11,56 @@ const MenuBar = () => {
   <div className="menuContainer">
     <div className="navbar">
       <div className="icons">
-        <BiHomeCircle
-          size="40px"
-          color="grey"
-          animation="spin-hover"
-         />
-        <IoBagAddSharp
-          size="40px"
-          color="grey"
-        />
-        <FaRegMoneyBillAlt
-          size="40px"
-          color="grey"
-        />
-        <MdOutlineFavoriteBorder
-          size="40px"
-          color="grey"
-        />
-        <GoGraph
-          size="40px"
-          color="grey"
-        />
-        <BiLogOut
-          size="40px"
-          color="grey"
-        />
+        <ul>
+          <li>
+          <BiHomeCircle
+              size="40px"
+              color="grey"
+              onMouseOver={({target})=>target.style.color="#B3F17F"}
+              onMouseOut={({target})=>target.style.color="grey"}
+            /> 
+          </li>
+          <li>
+            <IoBagAddSharp
+              size="40px"
+              color="grey"
+              onMouseOver={({target})=>target.style.color="#B3F17F"}
+              onMouseOut={({target})=>target.style.color="grey"}
+            />  
+          </li>
+          <li>
+            <FaRegMoneyBillAlt
+              size="40px"
+              color="grey"
+              onMouseOver={({target})=>target.style.color="#B3F17F"}
+              onMouseOut={({target})=>target.style.color="grey"}
+            />
+          </li>
+          <li>
+            <MdOutlineFavoriteBorder
+              size="40px"
+              color="grey"
+              onMouseOver={({target})=>target.style.color="#B3F17F"}
+              onMouseOut={({target})=>target.style.color="grey"}
+            />
+          </li>
+          <li>
+            <GoGraph
+              size="40px"
+              color="grey"
+              onMouseOver={({target})=>target.style.color="#B3F17F"}
+              onMouseOut={({target})=>target.style.color="grey"}
+            />
+          </li>
+          <li>
+            <BiLogOut
+              size="40px"
+              color="grey"
+              onMouseOver={({target})=>target.style.color="#B3F17F"}
+              onMouseOut={({target})=>target.style.color="grey"}
+            />
+          </li>
+        </ul>
       </div>
     </div>
     <div className="title">
@@ -46,3 +71,9 @@ const MenuBar = () => {
 };
 
 export default MenuBar;
+
+        
+        
+        
+        
+       
