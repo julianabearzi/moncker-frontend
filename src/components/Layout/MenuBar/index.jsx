@@ -1,6 +1,10 @@
 import React from 'react';
 import './menu.css';
-import { BiHomeCircle,BiCompass,BiSearch,BiCalculator,BiMoney,BiLogOut } from "react-icons/bi";
+import { BiHomeCircle, BiLogOut } from "react-icons/bi";
+import { MdOutlineFavoriteBorder } from "react-icons/md"; 
+import { IoBagAddSharp } from "react-icons/io5";
+import { GoGraph} from "react-icons/go";
+import { FaRegMoneyBillAlt } from "react-icons/fa";
 
 const MenuBar = () => {
   return (
@@ -12,19 +16,19 @@ const MenuBar = () => {
           color="grey"
           animation="spin-hover"
          />
-        <BiCompass
+        <IoBagAddSharp
           size="40px"
           color="grey"
         />
-        <BiSearch
+        <FaRegMoneyBillAlt
           size="40px"
           color="grey"
         />
-        <BiCalculator
+        <MdOutlineFavoriteBorder
           size="40px"
           color="grey"
         />
-        <BiMoney
+        <GoGraph
           size="40px"
           color="grey"
         />
