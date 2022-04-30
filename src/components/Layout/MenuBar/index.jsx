@@ -34,6 +34,9 @@ const MenuBar = () => {
         />
       </div>
     </div>
+    <div className="title">
+      <h1>Moncker App</h1>
+    </div>
   </div>
   )
 };
