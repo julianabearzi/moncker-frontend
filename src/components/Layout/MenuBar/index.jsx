@@ -10,6 +10,7 @@ const MenuBar = () => {
         <BiHomeCircle
           size="40px"
           color="grey"
+          animation="spin-hover"
          />
         <BiCompass
           size="40px"
