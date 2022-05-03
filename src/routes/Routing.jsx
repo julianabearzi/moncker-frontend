@@ -1,21 +1,18 @@
 import { useEffect, React } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {
-  Routes,
-  Route,
-  Navigate,
-  BrowserRouter as Router,
-} from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import LinearProgress from '@mui/material/LinearProgress';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import Profile from '../components/Profile';
 import Layout from '../components/Layout';
 import Income from '../components/Income';
+import ProtectedRoute from './ProtectedRoute';
+import PublicRoute from './PublicRoute';
 import { revalidateToken as revalidateTokenAction } from '../redux/actions/authUsersActions';
 
-const Routing = ({ isLoading, revalidateToken, authenticated }) => {
+const Routing = ({ isLoading, revalidateToken }) => {
   useEffect(() => {
     revalidateToken();
   }, []);
@@ -26,44 +23,48 @@ const Routing = ({ isLoading, revalidateToken, authenticated }) => {
   return (
     <Router>
       <Routes>
-        {!authenticated ? (
-          <Route path="/register" element={<Register />} />
-        ) : (
-          <Route path="/register" element={<Navigate to="/" />} />
-        )}
-        {!authenticated ? (
-          <Route path="/" element={<Login />} />
-        ) : (
-          <Route
-            path="/"
-            element={
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
               <Layout>
                 <Profile />
               </Layout>
-            }
-          />
-        )}
-
-        {authenticated && (
-          <Route
-            path="/income"
-            element={
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/income"
+          element={
+            <ProtectedRoute>
               <Layout>
                 <Income />
               </Layout>
-            }
-          />
-        )}
+            </ProtectedRoute>
+          }
+        />
         <Route
-          path="*"
+          path="/register"
           element={
-            authenticated ? (
-              <Layout>
-                <Profile />
-              </Layout>
-            ) : (
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
               <Login />
-            )
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
           }
         />
       </Routes>

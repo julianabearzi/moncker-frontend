@@ -12,7 +12,7 @@ import {
 
 const initialState = {
   isLoading: false,
-  authenticated: false,
+  authenticated: null,
   _id: null,
   email: null,
   isAdmin: null,
