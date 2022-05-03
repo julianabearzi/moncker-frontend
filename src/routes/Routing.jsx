@@ -1,17 +1,21 @@
 import { useEffect, React } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  Navigate,
+  BrowserRouter as Router,
+} from 'react-router-dom';
 import LinearProgress from '@mui/material/LinearProgress';
-import Home from '../components/Home';
 import Login from '../components/Login';
 import Register from '../components/Register';
-import PrivateRoute from './PrivateRoute';
-import RoutePublic from './PublicRoute';
 import Profile from '../components/Profile';
+import Layout from '../components/Layout';
+import Income from '../components/Income';
 import { revalidateToken as revalidateTokenAction } from '../redux/actions/authUsersActions';
 
-const Routing = ({ revalidateToken, isLoading }) => {
+const Routing = ({ isLoading, revalidateToken, authenticated }) => {
   useEffect(() => {
     revalidateToken();
   }, []);
@@ -20,22 +24,52 @@ const Routing = ({ revalidateToken, isLoading }) => {
     return <LinearProgress />;
   }
   return (
-    <Routes>
-      <Route element={<RoutePublic />}>
-        <Route path="home" element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-      </Route>
+    <Router>
+      <Routes>
+        {!authenticated ? (
+          <Route path="/register" element={<Register />} />
+        ) : (
+          <Route path="/register" element={<Navigate to="/" />} />
+        )}
+        {!authenticated ? (
+          <Route path="/" element={<Login />} />
+        ) : (
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <Profile />
+              </Layout>
+            }
+          />
+        )}
 
-      <Route element={<PrivateRoute />}>
-        <Route path="profile" element={<Profile />} />
-      </Route>
-
-      <Route path="*" element={<Navigate to="/home" />} />
-    </Routes>
+        {authenticated && (
+          <Route
+            path="/income"
+            element={
+              <Layout>
+                <Income />
+              </Layout>
+            }
+          />
+        )}
+        <Route
+          path="*"
+          element={
+            authenticated ? (
+              <Layout>
+                <Profile />
+              </Layout>
+            ) : (
+              <Login />
+            )
+          }
+        />
+      </Routes>
+    </Router>
   );
 };
-
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
@@ -44,9 +78,9 @@ const mapDispatchToProps = (dispatch) => {
     dispatch
   );
 };
-
 const mapStateToProps = (state) => ({
   isLoading: state.auth.isLoading,
+  authenticated: state.auth.authenticated,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Routing);
