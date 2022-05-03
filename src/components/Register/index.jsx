@@ -94,7 +94,7 @@ const Register = ({ registerUser, isLoading, userExists }) => {
           />
           <div className="loginLink">
             <p className="linkText">You have an account?</p>
-            <Link to="/login" className="loginLinkText">
+            <Link to="/" className="loginLinkText">
               Login
             </Link>
           </div>
