@@ -23,5 +23,8 @@ module.exports = {
     'jsx-a11y/label-has-for': 0,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'default-param-last': 'off',
+    'no-param-reassign': 'off',
+    'no-return-assign': 'off',
+    'no-unused-expressions': 'off',
   },
 };

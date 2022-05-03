@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
 import { connect } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import Alert from '@mui/material/Alert';
 import LinearProgress from '@mui/material/LinearProgress';
@@ -11,8 +12,10 @@ import { logIn as logInAction } from '../../redux/actions/authUsersActions';
 import './login.css';
 
 const Login = ({ error, logIn, isLoading }) => {
+  let navigate = useNavigate();
   const onSubmitLogin = (values) => {
     logIn(values);
+    navigate('/profile');
   };
   return (
     <div className="container">
@@ -80,7 +83,9 @@ const Login = ({ error, logIn, isLoading }) => {
         <div className="signUp">
           <h1>Welcome to login</h1>
           <h3>Dont have an account?</h3>
-          <Button btnLabel="REGISTER " />
+          <Link to="/register">
+            <Button btnLabel="REGISTER " />
+          </Link>
         </div>
       </div>
     </div>

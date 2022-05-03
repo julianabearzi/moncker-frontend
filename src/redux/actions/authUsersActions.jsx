@@ -2,8 +2,12 @@ import {
   LOG_IN_FETCHING,
   LOG_IN_FULFILLED,
   LOG_IN_REJECTED,
+  REGISTER_FETCHING,
+  REGISTER_FULFILLED,
+  REGISTER_REJECTED,
   REVALIDATE_TOKEN_FETCHING,
   REVALIDATE_TOKEN_FINISHED,
+  LOG_OUT,
 } from '../types/authTypes';
 
 const URL = process.env.REACT_APP_BACKEND_URL;
@@ -78,41 +82,51 @@ export const revalidateToken = () => (dispatch) => {
     });
 };
 
-/*   export const signUpFetching = () => ({
-    type: SIGN_UP_FETCHING,
-  });
-  
-  export const signUpRejected = () => ({
-    type: SIGN_UP_REJECTED,
-  });
-  
-  export const signUp = (values) => (dispatch) => {
-    dispatch(signUpFetching());
-    return fetch(`${URL}/users`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(values),
-    })
-      .then((data) => data.json())
-      .then((response) => {
+export const logOut = () => ({
+  type: LOG_OUT,
+});
+
+export const startLogout = () => {
+  return (dispatch) => {
+    localStorage.clear();
+    dispatch(logOut());
+  };
+};
+
+export const registerUserFetching = () => ({
+  type: REGISTER_FETCHING,
+});
+
+export const registerUserFulfilled = (payload) => ({
+  type: REGISTER_FULFILLED,
+  payload,
+});
+
+export const registerUserRejected = (payload) => ({
+  type: REGISTER_REJECTED,
+  payload,
+});
+
+export const registerUser = (values) => (dispatch) => {
+  dispatch(registerUserFetching());
+  return fetch(`${URL}/api/users/register`, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(values),
+  })
+    .then((data) => data.json())
+    .then((response) => {
+      if (response._id) {
         localStorage.setItem('token', response.token);
         localStorage.setItem('token-init-date', new Date().getTime());
-        dispatch(loginFulfilled(response._id, values.username));
-      })
-      .catch(() => {
-        dispatch(signUpRejected());
-      });
-  };
-  
-  export const logOut = () => ({
-    type: LOG_OUT,
-  });
-  
-  export const startLogout = () => {
-    return (dispatch) => {
-      localStorage.clear();
-      dispatch(logOut());
-    };
-  }; */
+        dispatch(loginFulfilled(response._id, values.email, response.isAdmin));
+      } else {
+        dispatch(registerUserRejected());
+      }
+    })
+    .catch(() => {
+      dispatch(registerUserRejected());
+    });
+};

@@ -1,7 +1,9 @@
+import './profile.css';
+
 const Profile = () => {
   return (
     <div>
-      <h2>Profile</h2>
+      <h2 className="profileTitle">Profile</h2>
     </div>
   );
 };
