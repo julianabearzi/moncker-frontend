@@ -1,7 +1,7 @@
 .menuContainer {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   background-color: #101014;

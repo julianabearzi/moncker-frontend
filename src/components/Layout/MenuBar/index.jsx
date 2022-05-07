@@ -19,7 +19,7 @@ const MenuBar = ({ startLogout }) => {
       <div className="icons">
         <ul>
           <li>
-            <Link to="/">
+            <Link to="/profile">
               <BiHomeCircle
                 size="40px"
                 color="grey"
@@ -39,12 +39,14 @@ const MenuBar = ({ startLogout }) => {
             </Link>
           </li>
           <li>
-            <FaRegMoneyBillAlt
-              size="40px"
-              color="grey"
-              onMouseOver={({ target }) => (target.style.color = '#B3F17F')}
-              onMouseOut={({ target }) => (target.style.color = 'grey')}
-            />
+            <Link to="/expenses">
+              <FaRegMoneyBillAlt
+                size="40px"
+                color="grey"
+                onMouseOver={({ target }) => (target.style.color = '#B3F17F')}
+                onMouseOut={({ target }) => (target.style.color = 'grey')}
+              />
+            </Link>
           </li>
           <li>
             <MdOutlineFavoriteBorder
