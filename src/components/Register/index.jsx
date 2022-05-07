@@ -46,7 +46,7 @@ const Register = ({ registerUser, isLoading, userExists }) => {
                     name="firstname"
                     component={TextInput}
                     placeholder="Firstname"
-                    validate={composeValidators(string, required, trim)}
+                    validate={composeValidators(required, string, trim)}
                   />
                 </div>
                 <div className="registerInput">
@@ -54,7 +54,7 @@ const Register = ({ registerUser, isLoading, userExists }) => {
                     name="lastname"
                     component={TextInput}
                     placeholder="Lastname"
-                    validate={composeValidators(string, required, trim)}
+                    validate={composeValidators(required, string, trim)}
                   />
                 </div>
                 <div className="registerInput">

@@ -8,9 +8,11 @@ import Register from '../components/Register';
 import Profile from '../components/Profile';
 import Layout from '../components/Layout';
 import Income from '../components/Income';
+import Expenses from '../components/Expenses';
 import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
 import { revalidateToken as revalidateTokenAction } from '../redux/actions/authUsersActions';
+import NotFound from '../components/NotFound';
 
 const Routing = ({ isLoading, revalidateToken }) => {
   useEffect(() => {
@@ -18,7 +20,7 @@ const Routing = ({ isLoading, revalidateToken }) => {
   }, []);
 
   if (isLoading) {
-    return <LinearProgress />;
+    return <LinearProgress color="secondary" />;
   }
   return (
     <Router>
@@ -44,6 +46,16 @@ const Routing = ({ isLoading, revalidateToken }) => {
           }
         />
         <Route
+          path="/expenses"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <Expenses />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/register"
           element={
             <PublicRoute>
@@ -64,6 +76,14 @@ const Routing = ({ isLoading, revalidateToken }) => {
           element={
             <PublicRoute>
               <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <PublicRoute>
+              <NotFound />
             </PublicRoute>
           }
         />

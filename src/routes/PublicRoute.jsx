@@ -9,7 +9,7 @@ const PublicRoute = ({ children }) => {
 
   useEffect(() => {
     if (authenticated === null) {
-      return <LinearProgress />;
+      return <LinearProgress color="secondary" />;
     }
   }, []);
 

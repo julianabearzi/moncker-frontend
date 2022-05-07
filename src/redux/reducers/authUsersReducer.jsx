@@ -113,11 +113,10 @@ const authReducer = (state = initialState, action) => {
         isLoading: false,
         authenticated: false,
         _id: null,
-        username: null,
+        email: null,
         error: false,
         userExists: false,
       };
-
     default:
       return state;
   }
