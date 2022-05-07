@@ -19,10 +19,11 @@ const getModalStyle = () => {
 const useStyles = makeStyles(() => ({
   paper: {
     position: 'absolute',
-    backgroundColor: 'white',
-    border: '2px solid #000',
-    boxShadow: '8px 4px 4px black',
-    padding: '0px 30px 0px ',
+    backgroundColor: '#2E2B26',
+    border: '1px solid #FFF',
+    borderRadius: '15px',
+    boxShadow: '6px 2px 2px black',
+    padding: '10px 30px 0px ',
     outline: 0,
   },
 }));
