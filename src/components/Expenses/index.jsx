@@ -8,7 +8,7 @@ import { showModal as showModalAction } from '../../redux/actions/modalActions';
 import modalTypes from '../../redux/types/modalTypes';
 import ExpensesList from './ExpensesList';
 import ExpensesForm from './ExpensesForm';
-import ConfirmationMessage from './ConfirmationMessage';
+// import ConfirmationMessage from './ConfirmationMessage';
 import Modal from '../Shared/Modal';
 
 const Expenses = ({
@@ -24,7 +24,7 @@ const Expenses = ({
   }, []);
 
   const showAddModal = () => {
-    showModal(modalTypes.ADD_EXPENSES;
+    showModal(modalTypes.ADD_EXPENSES);
   };
 
   return (
