@@ -8,7 +8,7 @@ import { showModal as showModalAction } from '../../redux/actions/modalActions';
 import modalTypes from '../../redux/types/modalTypes';
 import ExpensesList from './ExpensesList';
 import ExpensesForm from './ExpensesForm';
-// import ConfirmationMessage from './ConfirmationMessage';
+import ConfirmationMessage from './ExpConfirmationMessage';
 import Modal from '../Shared/Modal';
 
 const Expenses = ({
@@ -17,7 +17,7 @@ const Expenses = ({
   modalType,
   userProfile,
   expenses,
-  // meta,
+  meta,
 }) => {
   useEffect(() => {
     userProfile();
@@ -39,10 +39,10 @@ const Expenses = ({
 
           <Modal>
             {modalType === 'ADD_EXPENSES' && <ExpensesForm />}
-            {/* {modalType === 'DELETE_EXPENSES' && (
+            {modalType === 'DELETE_EXPENSES' && (
               <ConfirmationMessage expensesId={meta.id} />
-            )} */}
-            {/* {modalType === 'UPDATE_EXPENSES' && <ExpensesForm inc={meta.inc} />} */}
+            )}
+            {modalType === 'UPDATE_EXPENSES' && <ExpensesForm inc={meta.exp} />}
           </Modal>
 
           <ExpensesList expenses={expenses} />
