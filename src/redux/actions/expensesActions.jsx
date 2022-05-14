@@ -93,7 +93,7 @@ export const deleteExpensesRejected = () => ({
 
 export const deleteExpenses = (id) => (dispatch) => {
     const token = localStorage.getItem('token') || '';
-    dispatch(deleteIncomeFetching());
+    dispatch(deleteExpensesFetching());
     return fetch(`${URL}/api/expenses/${id}`, {
         method: 'DELETE',
         headers: {

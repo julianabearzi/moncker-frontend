@@ -18,7 +18,7 @@ import { closeModal as closeModalAction } from '../../../redux/actions/modalActi
 import Button from '../../Shared/Button';
 import Select from '../../Shared/Select';
 import TextInput from '../../Shared/TextInput';
-import './expensesForm.css';
+import './expenses.css';
 
 const ExpensesForm = ({
     exp,
@@ -65,7 +65,7 @@ const ExpensesForm = ({
                 }}
                 render={({ handleSubmit, form, submitting, pristine }) => (
                     <form onSubmit={handleSubmit} className="formContainer">
-                        <p className="addText"> {inc ? 'Update Expenses' : 'Add Expenses'}</p>
+                        <p className="addText"> {exp ? 'Update Expenses' : 'Add Expenses'}</p>
                         <div className="textInput">
                             <Field
                                 name="description"
