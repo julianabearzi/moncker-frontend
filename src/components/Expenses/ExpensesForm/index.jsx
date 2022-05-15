@@ -42,6 +42,40 @@ const ExpensesForm = ({
             value: 'BTC',
         },
     ];
+    const category = [
+        {
+            id: 'Food',
+            value: 'Food',
+        },
+        {
+            id: 'Bills & utilities',
+            value: 'Bills & utilities',
+        },
+        {
+            id: 'Entertainment',
+            value: 'Entertainment',
+        },
+        {
+            id: 'Transportation',
+            value: 'Transportation',
+        },
+        {
+            id: 'Health & personal care',
+            value: 'Health & personal care',
+        },
+        {
+            id: 'Personal Spending',
+            value: 'Personal Spending',
+        },
+        {
+            id: 'Housing',
+            value: 'Housing',
+        },
+        {
+            id: 'Others',
+            value: 'Others',
+        },
+    ];
 
     const onSubmitExpenses = (values) => {
         if (exp) {
@@ -61,6 +95,7 @@ const ExpensesForm = ({
                     description: exp ? exp.description : '',
                     amount: exp ? exp.amount : '',
                     type: exp ? exp.type : '',
+                    category: exp ? exp.category : '',
                     user: userId,
                 }}
                 render={({ handleSubmit, form, submitting, pristine }) => (
@@ -94,6 +129,14 @@ const ExpensesForm = ({
                                 component={Select}
                                 options={coins}
                                 label="Coin type:"
+                            />
+                        </div>
+                        <div>
+                            <Field
+                                name="category"
+                                component={Select}
+                                options={category}
+                                label="Category:"
                             />
                         </div>
                         <div className="btnExpensesContainer">
