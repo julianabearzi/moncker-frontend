@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { closeModal as closeModalAction } from '../../../redux/actions/modalActions';
@@ -12,12 +12,18 @@ const ConfirmationMessage = ({
   closeModal,
   deleteIncome,
   userProfile,
+  isIncDeleted,
 }) => {
   const onDeleteIncome = () => {
     deleteIncome(incomeId);
-    closeModal();
-    userProfile();
   };
+
+  useEffect(() => {
+    if (isIncDeleted) {
+      closeModal();
+      userProfile();
+    }
+  }, [isIncDeleted]);
 
   return (
     <div>
@@ -49,4 +55,12 @@ const mapDispatchToProps = (dispatch) => {
   );
 };
 
-export default connect(null, mapDispatchToProps)(ConfirmationMessage);
+const mapStateToProps = (state) => ({
+  userId: state.auth._id,
+  isIncDeleted: state.income.isIncDeleted,
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ConfirmationMessage);

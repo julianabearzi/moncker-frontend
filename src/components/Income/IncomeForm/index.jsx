@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Form, Field } from 'react-final-form';
@@ -27,6 +27,8 @@ const IncomeForm = ({
   closeModal,
   userId,
   userProfile,
+  isIncAdded,
+  isIncUpdated,
 }) => {
   const coins = [
     {
@@ -49,10 +51,17 @@ const IncomeForm = ({
     } else {
       addIncome(values);
     }
-    closeModal();
-    userProfile();
   };
-
+  useEffect(() => {
+    if (isIncAdded) {
+      userProfile();
+      closeModal();
+    }
+    if (isIncUpdated) {
+      userProfile();
+      closeModal();
+    }
+  }, [isIncAdded, isIncUpdated]);
   return (
     <div>
       <Form
@@ -60,7 +69,7 @@ const IncomeForm = ({
         initialValues={{
           description: inc ? inc.description : '',
           amount: inc ? inc.amount : '',
-          type: inc ? inc.type : '',
+          type: inc ? inc.type : 'USD',
           user: userId,
         }}
         render={({ handleSubmit, form, submitting, pristine }) => (
@@ -130,6 +139,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => ({
   userId: state.auth._id,
+  isIncAdded: state.income.isIncAdded,
+  isIncUpdated: state.income.isIncUpdated,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(IncomeForm);

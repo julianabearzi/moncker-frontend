@@ -8,6 +8,9 @@ import {
   DELETE_INCOME_FETCHING,
   DELETE_INCOME_FULFILLED,
   DELETE_INCOME_REJECTED,
+  RESET_INCOME_ADDED,
+  RESET_INCOME_DELETED,
+  RESET_INCOME_UPDATED,
 } from '../types/incomeTypes';
 
 const URL = process.env.REACT_APP_BACKEND_URL;
@@ -25,6 +28,10 @@ export const addIncomeRejected = () => ({
   type: ADD_INCOME_REJECTED,
 });
 
+export const incomeAdded = () => ({
+  type: RESET_INCOME_ADDED,
+});
+
 export const addIncome = (income) => (dispatch) => {
   const token = localStorage.getItem('token') || '';
   dispatch(addIncomeFetching());
@@ -38,6 +45,7 @@ export const addIncome = (income) => (dispatch) => {
   })
     .then((data) => data.json())
     .then((response) => {
+      dispatch(incomeAdded());
       dispatch(addIncomeFulfilled(response));
     })
     .catch(() => {
@@ -58,6 +66,10 @@ export const updateIncomeRejected = () => ({
   type: UPDATE_INCOME_REJECTED,
 });
 
+export const incomeUpdated = () => ({
+  type: RESET_INCOME_UPDATED,
+});
+
 export const updateIncome = (inc) => (dispatch) => {
   const token = localStorage.getItem('token') || '';
   dispatch(updateIncomeFetching());
@@ -71,6 +83,7 @@ export const updateIncome = (inc) => (dispatch) => {
   })
     .then((data) => data.json())
     .then((response) => {
+      dispatch(incomeUpdated());
       dispatch(updateIncomeFulfilled(response));
     })
     .catch(() => {
@@ -91,6 +104,10 @@ export const deleteIncomeRejected = () => ({
   type: DELETE_INCOME_REJECTED,
 });
 
+export const incomeDeleted = () => ({
+  type: RESET_INCOME_DELETED,
+});
+
 export const deleteIncome = (id) => (dispatch) => {
   const token = localStorage.getItem('token') || '';
   dispatch(deleteIncomeFetching());
@@ -102,6 +119,7 @@ export const deleteIncome = (id) => (dispatch) => {
   })
     .then((data) => data.json())
     .then(() => {
+      dispatch(incomeDeleted());
       dispatch(deleteIncomeFulfilled(id));
     })
     .catch(() => {
