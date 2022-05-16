@@ -1,0 +1,36 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(36, 36, 75);
+  font-weight: 600;
+  color: white;
+  width: 40vw;
+  height: 65vh;
+}
+
+.textInput {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  width: 30vw;
+}
+
+.btnExpensesContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.addText {
+  font-size: 1rem;
+  font-weight: bolder;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
