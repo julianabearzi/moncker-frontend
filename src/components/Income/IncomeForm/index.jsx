@@ -60,7 +60,7 @@ const IncomeForm = ({
         initialValues={{
           description: inc ? inc.description : '',
           amount: inc ? inc.amount : '',
-          type: inc ? inc.type : '',
+          type: inc ? inc.type : 'USD',
           user: userId,
         }}
         render={({ handleSubmit, form, submitting, pristine }) => (

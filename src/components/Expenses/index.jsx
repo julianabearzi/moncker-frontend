@@ -42,7 +42,7 @@ const Expenses = ({
             {modalType === 'DELETE_EXPENSES' && (
               <ConfirmationMessage expensesId={meta.id} />
             )}
-            {modalType === 'UPDATE_EXPENSES' && <ExpensesForm inc={meta.exp} />}
+            {modalType === 'UPDATE_EXPENSES' && <ExpensesForm exp={meta.exp} />}
           </Modal>
 
           <ExpensesList expenses={expenses} />

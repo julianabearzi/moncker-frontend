@@ -83,8 +83,8 @@ const ExpensesForm = ({
         } else {
             addExpenses(values);
         }
-        closeModal();
         userProfile();
+        closeModal();
     };
 
     return (
@@ -94,8 +94,8 @@ const ExpensesForm = ({
                 initialValues={{
                     description: exp ? exp.description : '',
                     amount: exp ? exp.amount : '',
-                    type: exp ? exp.type : '',
-                    category: exp ? exp.category : '',
+                    type: exp ? exp.type : 'USD',
+                    category: exp ? exp.category : 'Food',
                     user: userId,
                 }}
                 render={({ handleSubmit, form, submitting, pristine }) => (
