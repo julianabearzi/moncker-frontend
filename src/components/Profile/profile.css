@@ -1,3 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 .profileTitle {
   color: white;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rem;
+  color: white;
+}
+
+.profileContainerUp {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+  margin-top: 1rem;
+  background-color: #95d64a;
+  padding: 1rem;
+}
+
+.profileContainerUpLeft {
+  display: flex;
+  flex-direction: column;
+  background-color: #95d64a;
+}
+
+.dataUserContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #101014;
+  padding: 1rem;
+}
+
+.dataUserContainer h5 {
+  font-weight: 300;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.transactionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  height: 80%;
+  margin: 0 2rem;
+  background-color: #101014;
+  padding: 1rem;
+}
+
+.balanceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #101014;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.btnContainerProfile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.customBtn {
+  width: 180px;
+  height: 40px;
+  color: rgb(39, 36, 36);
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.btn1 {
+  background-color: #f0ecfc;
+  background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  margin-right: 0.2rem;
+}
+.btn1 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn1:before,
+.btn1:after {
+  position: absolute;
+  content: '';
+  right: 0;
+  bottom: 0;
+  background: #c797eb;
+  /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
+  transition: all 0.3s ease;
+}
+.btn1:before {
+  height: 0%;
+  width: 2px;
+}
+.btn1:after {
+  width: 0%;
+  height: 2px;
+}
+.btn1:hover:before {
+  height: 100%;
+}
+.btn1:hover:after {
+  width: 100%;
+}
+.btn1:hover {
+  background: transparent;
+}
+.btn1 span:hover {
+  color: #c797eb;
+}
+.btn1 span:before,
+.btn1 span:after {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  background: #c797eb;
+  /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
+  transition: all 0.3s ease;
+}
+.btn1 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn1 span:after {
+  height: 2px;
+  width: 0%;
+}
+.btn1 span:hover:before {
+  height: 100%;
+}
+.btn1 span:hover:after {
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .profileContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0;
+  }
+
+  .profileContainerUp {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profileContainer {
+    height: auto;
+  }
+  .profileContainerUp {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .transactionsContainer {
+    width: 70%;
+    height: 70%;
+    margin-top: 0.2rem;
+    margin-left: 0;
+  }
+  .dataUserContainer {
+    margin-top: 0;
+  }
+  .dataUserContainer h5 {
+    font-size: 1rem;
+    margin-top: 0;
+  }
+  .profileTitle {
+    font-size: 1rem;
+  }
+  .balanceContainer {
+    padding: 0;
+    margin-top: 0.2rem;
+  }
+  .btn1 {
+    font-size: 0.6rem;
+    width: 100px;
+  }
 }
