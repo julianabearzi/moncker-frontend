@@ -1,0 +1,47 @@
+.userProfileStatsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.totalIncome {
+  padding: 0.5rem 8.4rem 0.5rem 0.5rem;
+  background-color: rgba(53, 52, 52, 0.5);
+  font-size: 0.9rem;
+}
+
+.totalExpenses {
+  padding: 0.5rem 0.5rem 0.5rem 8.4rem;
+  background-color: rgba(53, 52, 52, 0.5);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1280px) {
+  .totalIncome {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .totalExpenses {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .userProfileStatsContainer {
+    margin: 0;
+  }
+  .totalIncome {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .totalExpenses {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+  }
+}
