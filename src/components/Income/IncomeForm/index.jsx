@@ -13,6 +13,7 @@ import {
   addIncome as addIncomeAction,
   updateIncome as updateIncomeAction,
 } from '../../../redux/actions/incomeActions';
+import { getCoins as getCoinsAction } from '../../../redux/actions/coinsActions';
 import { userProfile as userProfileAction } from '../../../redux/actions/profileActions';
 import { closeModal as closeModalAction } from '../../../redux/actions/modalActions';
 import Button from '../../Shared/Button';
@@ -29,8 +30,10 @@ const IncomeForm = ({
   userProfile,
   isIncAdded,
   isIncUpdated,
+  getCoins,
+  coins,
 }) => {
-  const coins = [
+  /* const coins = [
     {
       id: 'USD',
       value: 'USD',
@@ -43,8 +46,10 @@ const IncomeForm = ({
       id: 'BTC',
       value: 'BTC',
     },
-  ];
-
+  ]; */
+  useEffect(() => {
+    getCoins();
+  }, []);
   const onSubmitIncome = (values) => {
     if (inc) {
       updateIncome({ ...values, id: inc._id });
@@ -101,7 +106,11 @@ const IncomeForm = ({
               <Field
                 name="type"
                 component={Select}
-                options={coins}
+                options={coins
+                  .sort((a, b) => {
+                    return b.volume_1day_usd - a.volume_1day_usd;
+                  })
+                  .slice(0, 10)}
                 label="Coin type:"
               />
             </div>
@@ -132,6 +141,7 @@ const mapDispatchToProps = (dispatch) => {
       updateIncome: updateIncomeAction,
       userProfile: userProfileAction,
       closeModal: closeModalAction,
+      getCoins: getCoinsAction,
     },
     dispatch
   );
@@ -141,6 +151,7 @@ const mapStateToProps = (state) => ({
   userId: state.auth._id,
   isIncAdded: state.income.isIncAdded,
   isIncUpdated: state.income.isIncUpdated,
+  coins: state.coins.list,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(IncomeForm);

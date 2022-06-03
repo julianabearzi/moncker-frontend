@@ -10,8 +10,8 @@ const Select = ({ input, meta, label, options }) => {
       <label className="lbl">{label}</label>
       <NativeSelect className="sel" {...input}>
         {options.map((option) => (
-          <option key={option.id} value={option.id}>
-            {option.value}
+          <option key={option.asset_id} value={option.asset_id}>
+            {option.asset_id}
           </option>
         ))}
       </NativeSelect>
