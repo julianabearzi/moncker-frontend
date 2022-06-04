@@ -33,7 +33,7 @@ const IncomeForm = ({
   getCoins,
   coins,
 }) => {
-  /* const coins = [
+  const fiat = [
     {
       id: 'USD',
       value: 'USD',
@@ -43,10 +43,10 @@ const IncomeForm = ({
       value: 'ARS',
     },
     {
-      id: 'BTC',
-      value: 'BTC',
+      id: 'EUR',
+      value: 'EUR',
     },
-  ]; */
+  ];
   useEffect(() => {
     getCoins();
   }, []);
@@ -74,7 +74,7 @@ const IncomeForm = ({
         initialValues={{
           description: inc ? inc.description : '',
           amount: inc ? inc.amount : '',
-          type: inc ? inc.type : 'USD',
+          type: inc ? inc.type : '',
           user: userId,
         }}
         render={({ handleSubmit, form, submitting, pristine }) => (
@@ -111,6 +111,7 @@ const IncomeForm = ({
                     return b.volume_1day_usd - a.volume_1day_usd;
                   })
                   .slice(0, 10)}
+                options2={fiat}
                 label="Coin type:"
               />
             </div>

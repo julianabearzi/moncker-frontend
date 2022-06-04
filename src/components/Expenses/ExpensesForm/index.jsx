@@ -13,6 +13,7 @@ import {
   addExpenses as addExpensesAction,
   updateExpenses as updateExpensesAction,
 } from '../../../redux/actions/expensesActions';
+import { getCoins as getCoinsAction } from '../../../redux/actions/coinsActions';
 import { userProfile as userProfileAction } from '../../../redux/actions/profileActions';
 import { closeModal as closeModalAction } from '../../../redux/actions/modalActions';
 import Button from '../../Shared/Button';
@@ -29,8 +30,13 @@ const ExpensesForm = ({
   userProfile,
   isExpUpdated,
   isExpAdded,
+  coins,
+  getCoins,
 }) => {
-  const coins = [
+  useEffect(() => {
+    getCoins();
+  }, []);
+  const fiat = [
     {
       id: 'USD',
       value: 'USD',
@@ -40,8 +46,8 @@ const ExpensesForm = ({
       value: 'ARS',
     },
     {
-      id: 'BTC',
-      value: 'BTC',
+      id: 'EUR',
+      value: 'EUR',
     },
   ];
   const category = [
@@ -141,7 +147,12 @@ const ExpensesForm = ({
               <Field
                 name="type"
                 component={Select}
-                options={coins}
+                options={coins
+                  .sort((a, b) => {
+                    return b.volume_1day_usd - a.volume_1day_usd;
+                  })
+                  .slice(0, 10)}
+                options2={fiat}
                 label="Coin type:"
               />
             </div>
@@ -149,7 +160,7 @@ const ExpensesForm = ({
               <Field
                 name="category"
                 component={Select}
-                options={category}
+                options2={category}
                 label="Category:"
               />
             </div>
@@ -180,6 +191,7 @@ const mapDispatchToProps = (dispatch) => {
       updateExpenses: updateExpensesAction,
       userProfile: userProfileAction,
       closeModal: closeModalAction,
+      getCoins: getCoinsAction,
     },
     dispatch
   );
@@ -189,6 +201,7 @@ const mapStateToProps = (state) => ({
   userId: state.auth._id,
   isExpAdded: state.expenses.isExpAdded,
   isExpUpdated: state.expenses.isExpUpdated,
+  coins: state.coins.list,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpensesForm);
