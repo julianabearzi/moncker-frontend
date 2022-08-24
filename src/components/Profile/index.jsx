@@ -6,6 +6,7 @@ import { FiUser } from 'react-icons/fi';
 import { FaDollarSign } from 'react-icons/fa';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
+import CircularProgress from '@mui/material/CircularProgress';
 import calTransaction from '../../utils/statistics';
 import subtract from '../../utils/subtraction';
 import DataGraph from './DataGraph';
@@ -17,6 +18,29 @@ const Profile = ({ email, expenses, income, userProfile, profile }) => {
   const [expResult, setExpResult] = useState([]);
   const [incResult, setIncResult] = useState([]);
   const [balanceResult, setBalanceResult] = useState([]);
+  const [valorUsdBlue,setDolarBlue] = useState([]);
+  const [valorBtc,setBtcValue] = useState([]);
+  const baseUrl = "https://api-dolar-argentina.herokuapp.com/api/dolarblue";
+  const baseUrlBtc = "https://api.coindesk.com/v1/bpi/currentprice.json";
+
+  useEffect(() => {
+    fetch(baseUrl)
+      .then(res=>res.json())
+      .then(data=> {
+        setDolarBlue([data.venta])
+      })
+    userProfile();
+  }, []);
+
+  useEffect(() => {
+    fetch(baseUrlBtc)
+      .then(res=>res.json())
+      .then(data=> {
+        setBtcValue([data.bpi.USD.rate_float])
+      })
+    userProfile();
+  }, []);
+
   useEffect(() => {
     userProfile();
   }, []);
@@ -73,15 +97,42 @@ const Profile = ({ email, expenses, income, userProfile, profile }) => {
               />
             </div>
             <div className="balanceContainer">
-              <h2 className="profileTitle">Balance</h2>
+              <h2>Balances</h2>
+              <p className="profileTitle">Ars
               <FaDollarSign
                 style={{
-                  height: '25px',
-                  width: '25px',
+                  height: '20px',
+                  width: '20px',
                   color: 'greenyellow',
                 }}
               />{' '}
-              <p>{balanceResult?.subTotal}</p>
+              {balanceResult?.subTotal}
+              </p>
+              <p className="profileTitle">usd
+              <FaDollarSign
+                style={{
+                  height: '20px',
+                  width: '20px',
+                  color: 'greenyellow',
+                }}
+              />{' '}
+              {
+                valorUsdBlue ? (balanceResult.subTotal / valorUsdBlue).toFixed(2)
+                : <CircularProgress />
+              }
+              </p>
+              <p className="profileTitle">btc
+              <FaDollarSign
+                style={{
+                  height: '20px',
+                  width: '20px',
+                  color: 'greenyellow',
+                }}
+              />{' '}
+              {
+                ((balanceResult.subTotal/valorUsdBlue)/valorBtc).toFixed(5)
+              }
+              </p>
             </div>
           </div>
           <div className="transactionsContainer">
