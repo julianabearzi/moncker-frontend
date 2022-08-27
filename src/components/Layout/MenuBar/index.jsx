@@ -49,12 +49,14 @@ const MenuBar = ({ startLogout }) => {
             </Link>
           </li>
           <li>
+            <Link to="/cryptolist">
             <MdOutlineFavoriteBorder
               size="40px"
               color="grey"
               onMouseOver={({ target }) => (target.style.color = '#B3F17F')}
               onMouseOut={({ target }) => (target.style.color = 'grey')}
             />
+            </Link>
           </li>
           <li>
             <GoGraph
