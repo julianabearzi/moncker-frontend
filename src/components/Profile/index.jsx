@@ -24,21 +24,29 @@ const Profile = ({ email, expenses, income, userProfile, profile }) => {
   const baseUrlBtc = "https://api.coindesk.com/v1/bpi/currentprice.json";
 
   useEffect(() => {
+    let isMounted = true;
     fetch(baseUrl)
       .then(res=>res.json())
       .then(data=> {
+        if(isMounted){
         setDolarBlue([data.venta])
-      })
-    userProfile();
+      }})
+      return () => {
+        isMounted = false;
+        };
   }, []);
 
   useEffect(() => {
+    let isMounted = true;
     fetch(baseUrlBtc)
       .then(res=>res.json())
       .then(data=> {
-        setBtcValue([data.bpi.USD.rate_float])
-      })
-    userProfile();
+        if(isMounted){
+          setBtcValue([data.bpi.USD.rate_float])
+        }})
+      return () => {
+        isMounted = false;
+        };
   }, []);
 
   useEffect(() => {
@@ -106,7 +114,9 @@ const Profile = ({ email, expenses, income, userProfile, profile }) => {
                   color: 'greenyellow',
                 }}
               />{' '}
-              {balanceResult?.subTotal}
+              { valorUsdBlue.length > 0 ? (balanceResult?.subTotal)
+                : <CircularProgress />
+              }
               </p>
               <p className="profileTitle">usd
               <FaDollarSign
@@ -117,7 +127,7 @@ const Profile = ({ email, expenses, income, userProfile, profile }) => {
                 }}
               />{' '}
               {
-                valorUsdBlue ? (balanceResult.subTotal / valorUsdBlue).toFixed(2)
+                valorUsdBlue.length > 0 ? (balanceResult.subTotal / valorUsdBlue).toFixed(2)
                 : <CircularProgress />
               }
               </p>
@@ -130,7 +140,8 @@ const Profile = ({ email, expenses, income, userProfile, profile }) => {
                 }}
               />{' '}
               {
-                ((balanceResult.subTotal/valorUsdBlue)/valorBtc).toFixed(5)
+                 valorUsdBlue.length > 0 ? ((balanceResult.subTotal/valorUsdBlue)/valorBtc).toFixed(5)
+                 : <CircularProgress />
               }
               </p>
             </div>
