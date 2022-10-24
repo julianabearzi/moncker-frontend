@@ -26,5 +26,6 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-return-assign': 'off',
     'no-unused-expressions': 'off',
+    camelcase: ['error', { properties: 'never' }],
   },
 };

@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { BiCoinStack } from 'react-icons/bi';
+import Button from '../../Shared/Button';
 import CryptoItem from '../CryptoItem';
 
 const List = ({ coins }) => {
@@ -17,6 +18,12 @@ const List = ({ coins }) => {
         <h3 className="cryptoTitle">Crypto List</h3>
         <BiCoinStack className="biCoin" size="30px" color="green" />
       </div>
+      <Button btnLabel="All Cryptos">
+            All Cryptos
+      </Button>
+      <Button btnLabel="Favorites">
+            Favorites
+      </Button>
       <Paper
         className="cryptoList"
         style={{
@@ -27,22 +34,38 @@ const List = ({ coins }) => {
           marginRight: '5rem',
         }}
       >
+        {console.log(coins)}
         <Table>
           <TableHead>
             <TableRow>
               <TableCell>Crypto Type</TableCell>
-              <TableCell>Add to favorite</TableCell>
+              <TableCell>Price(usd)</TableCell>
+              <TableCell align="center">Add to favorite</TableCell>
+              <TableCell align="center">More info</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {coins
+            {
+              coins.filter(coin=>coin.asset_id==="BTC"||coin.asset_id==="ETH"||coin.asset_id==="BNB"||coin.asset_id==="ADA"
+              ||coin.asset_id==="XRP"||coin.asset_id==="SOL"||coin.asset_id==="DOGE"||coin.asset_id==="DOT"||coin.asset_id==="SHIB")
+              // .slice(1, 11) 
+              .map(coin=>{
+                return <CryptoItem key={coin.asset_id} assetId={coin.asset_id} coin={coin}/>
+              }) 
+            }
+            {/* {coins
               .sort((a, b) => {
                 return b.volume_1day_usd - a.volume_1day_usd;
               })
               .slice(0, 20)
               .map((coin) => {
                 return <CryptoItem key={coin.asset_id} coin={coin} />;
-              })}
+              })} */}
+              {/* {
+                cryptoFilter.map((crypto)=>{
+                  return console.log(crypto.asset_id)
+                })
+              } */}
           </TableBody>
         </Table>
       </Paper>

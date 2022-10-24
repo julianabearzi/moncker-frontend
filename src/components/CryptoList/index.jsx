@@ -6,6 +6,7 @@ import Menu from '../Layout/MenuBar/index';
 import List from './List';
 import { getCoins as getCoinsAction } from '../../redux/actions/coinsActions';
 
+
 const CryptoList = ({ getCoins, coins }) => {
   useEffect(() => {
     getCoins();
