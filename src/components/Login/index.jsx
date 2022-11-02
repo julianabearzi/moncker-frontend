@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import Alert from '@mui/material/Alert';
+import { IoLogoTwitter,IoLogoFacebook,IoLogoInstagram,IoLogoWhatsapp} from "react-icons/io5";
 import LinearProgress from '@mui/material/LinearProgress';
 import { required } from '../../utils/validations';
 import Button from '../Shared/Button';
@@ -87,6 +88,14 @@ const Login = ({ error, logIn, isLoading }) => {
             <Button btnLabel="REGISTER " />
           </Link>
         </div>
+      </div>
+      <div className='socialMedia'>
+          <ul>
+            <li><a href='https://twitter.com/FinTracker_' target="_blanck"><IoLogoTwitter size="30px" aria-label="Save" color="white"/></a></li>
+            <li><a href='https://www.facebook.com/profile.php?id=100086786425145' target="_blanck"><IoLogoFacebook size="30px"  aria-label="Save" color="white"/></a></li>
+            <li><a href='https://www.instagram.com/fintracker_/' target="_blanck"><IoLogoInstagram size="30px"  aria-label="Save" color="white"/></a></li>
+            <li><a href='https://t.me/+mVkYNzxfng81YTNh' target="_blanck"><IoLogoWhatsapp size="30px" aria-label="Save" color="white"/></a></li>
+          </ul>
       </div>
     </div>
   );
