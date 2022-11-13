@@ -79,6 +79,14 @@ const Routing = ({ isLoading, revalidateToken }) => {
           }
         />
         <Route
+          path="/reports"
+          element={
+            <Layout>
+            
+            </Layout>
+          }
+        />
+        <Route
           path="/"
           element={
             <PublicRoute>

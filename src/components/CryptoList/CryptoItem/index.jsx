@@ -1,6 +1,7 @@
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MdOutlineFavorite,MdInfo } from 'react-icons/md';
 
 
