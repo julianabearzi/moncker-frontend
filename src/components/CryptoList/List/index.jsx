@@ -1,4 +1,5 @@
 import './style.css';
+/* eslint-disable consistent-return, no-useless-return,prefer-arrow-callback,no-else-return, no-shadow, no-unused-vars, camelcase, no-plusplus */
 import React from 'react';
 import { connect } from 'react-redux';
 import Table from '@mui/material/Table';
@@ -18,12 +19,8 @@ const List = ({ coins }) => {
         <h3 className="cryptoTitle">Crypto List</h3>
         <BiCoinStack className="biCoin" size="30px" color="green" />
       </div>
-      <Button btnLabel="All Cryptos">
-            All Cryptos
-      </Button>
-      <Button btnLabel="Favorites">
-            Favorites
-      </Button>
+      <Button btnLabel="All Cryptos">All Cryptos</Button>
+      <Button btnLabel="Favorites">Favorites</Button>
       <Paper
         className="cryptoList"
         style={{
@@ -34,7 +31,6 @@ const List = ({ coins }) => {
           marginRight: '5rem',
         }}
       >
-        {console.log(coins)}
         <Table>
           <TableHead>
             <TableRow>
@@ -45,14 +41,29 @@ const List = ({ coins }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {
-              coins.filter(coin=>coin.asset_id==="BTC"||coin.asset_id==="ETH"||coin.asset_id==="BNB"||coin.asset_id==="ADA"
-              ||coin.asset_id==="XRP"||coin.asset_id==="SOL"||coin.asset_id==="DOGE"||coin.asset_id==="DOT"||coin.asset_id==="SHIB")
-              // .slice(1, 11) 
-              .map(coin=>{
-                return <CryptoItem key={coin.asset_id} assetId={coin.asset_id} coin={coin}/>
-              }) 
-            }
+            {coins
+              .filter(
+                (coin) =>
+                  coin.asset_id === 'BTC' ||
+                  coin.asset_id === 'ETH' ||
+                  coin.asset_id === 'BNB' ||
+                  coin.asset_id === 'ADA' ||
+                  coin.asset_id === 'XRP' ||
+                  coin.asset_id === 'SOL' ||
+                  coin.asset_id === 'DOGE' ||
+                  coin.asset_id === 'DOT' ||
+                  coin.asset_id === 'SHIB'
+              )
+              // .slice(1, 11)
+              .map((coin) => {
+                return (
+                  <CryptoItem
+                    key={coin.asset_id}
+                    assetId={coin.asset_id}
+                    coin={coin}
+                  />
+                );
+              })}
             {/* {coins
               .sort((a, b) => {
                 return b.volume_1day_usd - a.volume_1day_usd;
@@ -61,7 +72,7 @@ const List = ({ coins }) => {
               .map((coin) => {
                 return <CryptoItem key={coin.asset_id} coin={coin} />;
               })} */}
-              {/* {
+            {/* {
                 cryptoFilter.map((crypto)=>{
                   return console.log(crypto.asset_id)
                 })
