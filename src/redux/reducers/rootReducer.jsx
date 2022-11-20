@@ -5,6 +5,7 @@ import profileReducer from './profileReducer';
 import incomeReducer from './incomeReducer';
 import expensesReducer from './expensesReducer';
 import coinsReducer from './coinsReducer';
+import favReducer from './favoriteCoinsReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   income: incomeReducer,
   expenses: expensesReducer,
   coins: coinsReducer,
+  favorites: favReducer,
 });
 
 export default rootReducer;
