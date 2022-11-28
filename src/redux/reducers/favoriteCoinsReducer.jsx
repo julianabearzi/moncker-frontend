@@ -50,13 +50,7 @@ const favoritesReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        list: state.list.map((fav) => {
-          if (fav._id === action.payload._id) {
-            const favUpdated = action.payload;
-            return favUpdated;
-          }
-          return fav;
-        }),
+        list: [...state.list.favorites, action.payload],
         isIncUpdated: false,
       };
     case UPDATE_FAVORITE_COINS_REJECTED:

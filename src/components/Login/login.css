@@ -63,6 +63,22 @@ form {
   background-color: #95d64a;
 }
 
+.socialMedia {
+  display: flex;
+  color: white;
+}
+
+.socialMedia ul {
+  display: flex;
+  list-style: none;
+}
+
+.socialMedia ul li {
+  margin: 10px;
+  text-decoration: none;
+  list-style: none;
+}
+
 @media (max-width: 1300px) {
   .container {
     height: auto;

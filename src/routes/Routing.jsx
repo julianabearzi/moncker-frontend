@@ -1,3 +1,4 @@
+/* eslint-disable  react/self-closing-comp */
 import { useEffect, React } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -72,12 +73,8 @@ const Routing = ({ isLoading, revalidateToken }) => {
             </PublicRoute>
           }
         />
-         <Route
-          path="/cryptolist"
-          element={
-            <CryptoList />
-          }
-        />
+        <Route path="/cryptolist" element={<CryptoList />} />
+        <Route path="/reports" element={<Layout></Layout>} />
         <Route
           path="/"
           element={

@@ -61,12 +61,13 @@ export const updateFavorites = (fav) => (dispatch) => {
       'Content-type': 'application/json',
       Authorization: token,
     },
-    body: JSON.stringify(fav.favorites),
+    body: JSON.stringify(fav),
   })
     .then((data) => data.json())
     .then((response) => {
       dispatch(favoritesUpdated());
       dispatch(updateFavoritesFulfilled(response));
+      dispatch(getFavoriteCoinsFulfilled(response));
     })
     .catch(() => {
       dispatch(updateFavoritesRejected());

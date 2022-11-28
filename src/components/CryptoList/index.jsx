@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
 import './style.css';
 import { React, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import LinearProgress from '@mui/material/LinearProgress';
 import Menu from '../Layout/MenuBar/index';
 import List from './List';
 import { getCoins as getCoinsAction } from '../../redux/actions/coinsActions';
@@ -12,17 +14,22 @@ const CryptoList = ({
   coins,
   getFavoriteCoins,
   userId,
-  favorites,
+  // isLoading,
 }) => {
   useEffect(() => {
     getFavoriteCoins(userId);
     getCoins();
-    console.log(favorites);
   }, []);
   return (
-    <div className="listContainer">
-      <Menu />
-      <List coins={coins} />
+    <div>
+      {userId === null ? (
+        <LinearProgress color="success" />
+      ) : (
+        <div className="listContainer">
+          <Menu />
+          <List coins={coins} />
+        </div>
+      )}
     </div>
   );
 };
@@ -41,6 +48,7 @@ const mapStateToProps = (state) => ({
   coins: state.coins.list,
   userId: state.auth._id,
   favorites: state.favorites.list.favorites,
+  isLoading: state.favorites.isLoading,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CryptoList);
