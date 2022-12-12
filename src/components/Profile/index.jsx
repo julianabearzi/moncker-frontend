@@ -12,41 +12,54 @@ import subtract from '../../utils/subtraction';
 import DataGraph from './DataGraph';
 import UserProfileStats from './UserProfileStats';
 import { userProfile as userProfileAction } from '../../redux/actions/profileActions';
+import { getFavoriteCoins as getFavoriteCoinsAction } from '../../redux/actions/favoriteCoinsActions';
 import './profile.css';
 
-const Profile = ({ email, expenses, income, userProfile, profile }) => {
+const Profile = ({
+  email,
+  expenses,
+  income,
+  userProfile,
+  profile,
+  getFavoriteCoins,
+  userId,
+}) => {
   const [expResult, setExpResult] = useState([]);
   const [incResult, setIncResult] = useState([]);
   const [balanceResult, setBalanceResult] = useState([]);
-  const [valorUsdBlue,setDolarBlue] = useState([]);
-  const [valorBtc,setBtcValue] = useState([]);
-  const baseUrl = "https://api-dolar-argentina.herokuapp.com/api/dolarblue";
-  const baseUrlBtc = "https://api.coindesk.com/v1/bpi/currentprice.json";
+  const [valorUsdBlue, setDolarBlue] = useState([]);
+  const [valorBtc, setBtcValue] = useState([]);
+  // const baseUrl = "https://api-dolar-argentina.herokuapp.com/api/dolarblue";
+  const baseUrl = 'https://api.bluelytics.com.ar/v2/latest';
+  const baseUrlBtc = 'https://api.coindesk.com/v1/bpi/currentprice.json';
 
   useEffect(() => {
+    getFavoriteCoins(userId);
     let isMounted = true;
     fetch(baseUrl)
-      .then(res=>res.json())
-      .then(data=> {
-        if(isMounted){
-        setDolarBlue([data.venta])
-      }})
-      return () => {
-        isMounted = false;
-        };
+      .then((res) => res.json())
+      .then((blue) => {
+        if (isMounted) {
+          setDolarBlue([blue.blue.value_avg]);
+        }
+      });
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   useEffect(() => {
     let isMounted = true;
     fetch(baseUrlBtc)
-      .then(res=>res.json())
-      .then(data=> {
-        if(isMounted){
-          setBtcValue([data.bpi.USD.rate_float])
-        }})
-      return () => {
-        isMounted = false;
-        };
+      .then((res) => res.json())
+      .then((data) => {
+        if (isMounted) {
+          setBtcValue([data.bpi.USD.rate_float]);
+        }
+      });
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -106,43 +119,50 @@ const Profile = ({ email, expenses, income, userProfile, profile }) => {
             </div>
             <div className="balanceContainer">
               <h2>Balances</h2>
-              <p className="profileTitle">Ars
-              <FaDollarSign
-                style={{
-                  height: '20px',
-                  width: '20px',
-                  color: 'greenyellow',
-                }}
-              />{' '}
-              { valorUsdBlue.length > 0 ? (balanceResult?.subTotal)
-                : <CircularProgress />
-              }
+              <p className="profileTitle">
+                Ars
+                <FaDollarSign
+                  style={{
+                    height: '20px',
+                    width: '20px',
+                    color: 'greenyellow',
+                  }}
+                />{' '}
+                {valorUsdBlue.length > 0 ? (
+                  balanceResult?.subTotal
+                ) : (
+                  <CircularProgress />
+                )}
               </p>
-              <p className="profileTitle">usd
-              <FaDollarSign
-                style={{
-                  height: '20px',
-                  width: '20px',
-                  color: 'greenyellow',
-                }}
-              />{' '}
-              {
-                valorUsdBlue.length > 0 ? (balanceResult.subTotal / valorUsdBlue).toFixed(2)
-                : <CircularProgress />
-              }
+              <p className="profileTitle">
+                usd
+                <FaDollarSign
+                  style={{
+                    height: '20px',
+                    width: '20px',
+                    color: 'greenyellow',
+                  }}
+                />{' '}
+                {valorUsdBlue.length > 0 ? (
+                  (balanceResult.subTotal / valorUsdBlue).toFixed(2)
+                ) : (
+                  <CircularProgress />
+                )}
               </p>
-              <p className="profileTitle">btc
-              <FaDollarSign
-                style={{
-                  height: '20px',
-                  width: '20px',
-                  color: 'greenyellow',
-                }}
-              />{' '}
-              {
-                 valorUsdBlue.length > 0 ? ((balanceResult.subTotal/valorUsdBlue)/valorBtc).toFixed(5)
-                 : <CircularProgress />
-              }
+              <p className="profileTitle">
+                btc
+                <FaDollarSign
+                  style={{
+                    height: '20px',
+                    width: '20px',
+                    color: 'greenyellow',
+                  }}
+                />{' '}
+                {valorUsdBlue.length > 0 ? (
+                  (balanceResult.subTotal / valorUsdBlue / valorBtc).toFixed(5)
+                ) : (
+                  <CircularProgress />
+                )}
               </p>
             </div>
           </div>
@@ -183,6 +203,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       userProfile: userProfileAction,
+      getFavoriteCoins: getFavoriteCoinsAction,
     },
     dispatch
   );
@@ -193,6 +214,7 @@ const mapStateToProps = (state) => ({
   expenses: state.profile.expenses,
   income: state.profile.income,
   profile: state.profile,
+  userId: state.auth._id,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
