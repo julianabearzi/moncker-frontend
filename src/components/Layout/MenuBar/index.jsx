@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { BiHomeCircle, BiLogOut } from 'react-icons/bi';
-import { IoBagAddSharp} from "react-icons/io5";
-import { MdOutlineFavoriteBorder } from 'react-icons/md';
+import { IoBagAddSharp } from 'react-icons/io5';
+// import { MdOutlineFavoriteBorder } from 'react-icons/md';
 import { GoGraph } from 'react-icons/go';
 import { FaRegMoneyBillAlt } from 'react-icons/fa';
 import { startLogout as startLogoutAction } from '../../../redux/actions/authUsersActions';
@@ -48,7 +48,7 @@ const MenuBar = ({ startLogout }) => {
               />
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/cryptolist">
             <MdOutlineFavoriteBorder
               size="40px"
@@ -57,16 +57,16 @@ const MenuBar = ({ startLogout }) => {
               onMouseOut={({ target }) => (target.style.color = 'grey')}
             />
             </Link>
-          </li>
+          </li> */}
           <li>
-          <Link to="/reports">
-            <GoGraph
-              size="40px"
-              color="grey"
-              onMouseOver={({ target }) => (target.style.color = '#B3F17F')}
-              onMouseOut={({ target }) => (target.style.color = 'grey')}
-            />
-             </Link>
+            <Link to="/reports">
+              <GoGraph
+                size="40px"
+                color="grey"
+                onMouseOver={({ target }) => (target.style.color = '#B3F17F')}
+                onMouseOut={({ target }) => (target.style.color = 'grey')}
+              />
+            </Link>
           </li>
           <li>
             <Link onClick={() => onLogout()} to="/">

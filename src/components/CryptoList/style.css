@@ -4,6 +4,7 @@
   color: rgb(165, 182, 69);
   background-color: black;
   font-size: 1.5rem;
+  overflow-x: hidden;
 }
 
 @media (max-width: 1000px) {

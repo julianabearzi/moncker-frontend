@@ -12,7 +12,7 @@ import Income from '../components/Income';
 import Expenses from '../components/Expenses';
 import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
-import CryptoList from '../components/CryptoList';
+// import CryptoList from '../components/CryptoList';
 import { revalidateToken as revalidateTokenAction } from '../redux/actions/authUsersActions';
 import NotFound from '../components/NotFound';
 
@@ -73,7 +73,7 @@ const Routing = ({ isLoading, revalidateToken }) => {
             </PublicRoute>
           }
         />
-        <Route path="/cryptolist" element={<CryptoList />} />
+        {/* <Route path="/cryptolist" element={<CryptoList />} /> */}
         <Route path="/reports" element={<Layout></Layout>} />
         <Route
           path="/"
