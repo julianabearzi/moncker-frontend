@@ -1,4 +1,4 @@
-export const chartDays = [
+const chartDays = [
   {
     label: '24 Hours',
     value: 1,
@@ -16,3 +16,5 @@ export const chartDays = [
     value: 365,
   },
 ];
+
+export default chartDays;
