@@ -11,10 +11,13 @@ import calTransaction from '../../utils/statistics';
 import subtract from '../../utils/subtraction';
 import DataGraph from './DataGraph';
 import UserProfileStats from './UserProfileStats';
+import Suscription from '../Suscription';
 import { userProfile as userProfileAction } from '../../redux/actions/profileActions';
 import './profile.css';
 
-const Profile = ({ email, expenses, income, userProfile, profile }) => {
+const Profile = ({ email, expenses, income, userProfile, profile,createdAt}) => {
+  let miDiv = document.getElementsByClassName('suscription');
+  let date = new Date(createdAt);
   const [expResult, setExpResult] = useState([]);
   const [incResult, setIncResult] = useState([]);
   const [balanceResult, setBalanceResult] = useState([]);
@@ -22,6 +25,22 @@ const Profile = ({ email, expenses, income, userProfile, profile }) => {
   const [valorBtc,setBtcValue] = useState([]);
   const baseUrl = "https://api-dolar-argentina.herokuapp.com/api/dolarblue";
   const baseUrlBtc = "https://api.coindesk.com/v1/bpi/currentprice.json";
+  
+ 
+  const daysSinceCreatedAt = (datee) => {
+    const currentTime = Date.now();
+    const difference = currentTime - datee;
+    const oneDay = 1000 * 60 * 60 * 24;
+    return Math.floor(difference / oneDay);
+  }
+
+  const suscription = (date) => {
+    if(date<=21){
+      <Suscription/>
+      return
+    }
+    <Suscription/>
+}
 
   useEffect(() => {
     let isMounted = true;
@@ -75,6 +94,9 @@ const Profile = ({ email, expenses, income, userProfile, profile }) => {
   }
   function handleClickInc() {
     navigate('/income');
+  }
+  function suscriptionClick() {
+    navigate('/suscription');
   }
   return (
     <div>
@@ -174,6 +196,12 @@ const Profile = ({ email, expenses, income, userProfile, profile }) => {
             <span>Income History</span>
           </button>
         </div>
+        <div id='susc' className='suscription'>
+          <p>Your subscription expired {daysSinceCreatedAt(date)-21} days ago</p>
+          To renew click  <button onClick={suscriptionClick} >here</button>
+        </div>
+        {/* <p>Antiguedad: {daysSinceCreatedAt(date)}</p>
+        <p>Pasaron: {fechaFinal} dias</p> */}
       </div>
     </div>
   );
@@ -190,9 +218,11 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => ({
   email: state.auth.email,
+  createdAt: state.profile.createdAt,
   expenses: state.profile.expenses,
   income: state.profile.income,
   profile: state.profile,
+  isLoading: state.isLoading
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

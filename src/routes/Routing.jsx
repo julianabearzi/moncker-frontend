@@ -14,6 +14,9 @@ import PublicRoute from './PublicRoute';
 import CryptoList from '../components/CryptoList';
 import { revalidateToken as revalidateTokenAction } from '../redux/actions/authUsersActions';
 import NotFound from '../components/NotFound';
+import CoinPage from '../components/Reports/CoinPage/CoinPage';
+import HomePage from '../components/Reports/HomePage/HomePage';
+import Suscription from '../components/Suscription/index';
 
 const Routing = ({ isLoading, revalidateToken }) => {
   useEffect(() => {
@@ -82,7 +85,23 @@ const Routing = ({ isLoading, revalidateToken }) => {
           path="/reports"
           element={
             <Layout>
-            
+              <HomePage/>
+            </Layout>
+          }
+        />
+        <Route
+          path="/suscription"
+          element={
+            <Layout>
+              <Suscription/>
+            </Layout>
+          }
+        />
+        <Route
+          path="/coins/:id"
+          element={
+            <Layout>
+              <CoinPage/>
             </Layout>
           }
         />
