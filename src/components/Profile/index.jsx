@@ -193,6 +193,11 @@ const Profile = ({
           >
             <span>Income History</span>
           </button>
+          asd
+          <div id='susc' className='suscription'>
+          <p>Your subscription expired {daysSinceCreatedAt(date)-21} days ago</p>
+          To renew click  <button onClick={suscriptionClick} >here</button>
+          </div>
         </div>
       </div>
     </div>
@@ -211,10 +216,11 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => ({
   email: state.auth.email,
+  createdAt: state.profile.createdAt,
   expenses: state.profile.expenses,
   income: state.profile.income,
   profile: state.profile,
-  userId: state.auth._id,
+  isLoading: state.isLoading
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
