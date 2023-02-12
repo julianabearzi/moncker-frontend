@@ -10,12 +10,30 @@ import {
   ThemeProvider,
 } from "@material-ui/core";
 import { HistoricalChart } from "../config/api";
-// import SelectButton from "./SelectButtom";
-// import  chartDays  from "../config/data";
+import SelectButton from "./SelectButtom";
+
+const chartDays = [
+  {
+    label: '24 Hours',
+    value: 1,
+  },
+  {
+    label: '30 Days',
+    value: 30,
+  },
+  {
+    label: '3 Months',
+    value: 90,
+  },
+  {
+    label: '1 Year',
+    value: 365,
+  },
+];
 
 const CoinInfo = ( ) => {
   const [historicData, setHistoricData] = useState();
-  // const [days, setDays] = useState(1);
+  const [days, setDays] = useState(1);
   const  currency  = 'usd';
   const [flag,setflag] = useState(false);
   const { id } = useParams();
@@ -51,7 +69,7 @@ const CoinInfo = ( ) => {
 
   useEffect(() => {
     fetchHistoricData();
-  }, []);
+  }, [days]);
 
   const darkTheme = createTheme({
     palette: {
@@ -108,7 +126,7 @@ const CoinInfo = ( ) => {
                 width: "100%",
               }}
             >
-              {/* {chartDays.map((day) => (
+              {chartDays.map((day) => (
                 <SelectButton
                   key={day.value}
                   onClick={() => {setDays(day.value);
@@ -121,7 +139,7 @@ const CoinInfo = ( ) => {
                 >
                   {day.label}
                 </SelectButton>
-              ))} */}
+              ))}
             </div>
           </>
         )}
