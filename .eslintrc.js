@@ -4,6 +4,9 @@ module.exports = {
     es2021: true,
     node: true,
   },
+  globals: {
+    chartDays: 'readonly',
+  },
   extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
@@ -27,6 +30,7 @@ module.exports = {
     'no-return-assign': 'off',
     'no-unused-expressions': 'off',
     'no-plusplus': 'off',
+    'no-undef': 'off',
     camelcase: ['error', { properties: 'never' }],
   },
 };
