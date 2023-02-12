@@ -10,8 +10,6 @@ const SelectButton = ({ children, selected, onClick }) => {
       paddingRight: 20,
       fontFamily: "Arial",
       textAlign:"center",
-      fontWeight:"bold",
-      color: "white",
       cursor: "pointer",
       backgroundColor: selected ? "gold" : "",
       color: selected ? "black" : "white",
@@ -28,9 +26,9 @@ const SelectButton = ({ children, selected, onClick }) => {
   const classes = useStyles();
 
   return (
-    <span onClick={onClick} className={classes.selectbutton}>
+    <div onClick={onClick} className={classes.selectbutton}>
       {children}
-    </span>
+    </div>
   );
 };
 

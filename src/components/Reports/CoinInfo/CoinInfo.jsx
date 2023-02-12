@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { Line} from "react-chartjs-2";
-import { Chart as ChartJS } from 'chart.js/auto'
+// import { Chart as ChartJS } from 'chart.js/auto'
 import {
   CircularProgress,
   createTheme,
@@ -10,12 +10,12 @@ import {
   ThemeProvider,
 } from "@material-ui/core";
 import { HistoricalChart } from "../config/api";
-import SelectButton from "./SelectButtom";
-//import  chartDays  from "../config/data";
+// import SelectButton from "./SelectButtom";
+// import  chartDays  from "../config/data";
 
 const CoinInfo = ( ) => {
   const [historicData, setHistoricData] = useState();
-  const [days, setDays] = useState(1);
+  // const [days, setDays] = useState(1);
   const  currency  = 'usd';
   const [flag,setflag] = useState(false);
   const { id } = useParams();
