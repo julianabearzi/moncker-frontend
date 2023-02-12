@@ -23,6 +23,7 @@ const Profile = ({
   profile,
   getFavoriteCoins,
   userId,
+  createdAt
 }) => {
   const [expResult, setExpResult] = useState([]);
   const [incResult, setIncResult] = useState([]);
@@ -32,6 +33,26 @@ const Profile = ({
   // const baseUrl = "https://api-dolar-argentina.herokuapp.com/api/dolarblue";
   const baseUrl = 'https://api.bluelytics.com.ar/v2/latest';
   const baseUrlBtc = 'https://api.coindesk.com/v1/bpi/currentprice.json';
+  let date = new Date(createdAt);
+
+  function suscriptionClick() {
+    navigate('/suscription');
+  }
+
+  const daysSinceCreatedAt = (datee) => {
+    const currentTime = Date.now();
+    const difference = currentTime - datee;
+    const oneDay = 1000 * 60 * 60 * 24;
+    return Math.floor(difference / oneDay);
+  }
+
+  const suscription = (date) => {
+    if(date<=21){
+      <Suscription/>
+      return
+    }
+    <Suscription/>
+}
 
   useEffect(() => {
     getFavoriteCoins(userId);
@@ -193,11 +214,10 @@ const Profile = ({
           >
             <span>Income History</span>
           </button>
-          asd
-          <div id='susc' className='suscription'>
+        </div>
+        <div id='susc' className='suscription'>
           <p>Your subscription expired {daysSinceCreatedAt(date)-21} days ago</p>
           To renew click  <button onClick={suscriptionClick} >here</button>
-          </div>
         </div>
       </div>
     </div>
