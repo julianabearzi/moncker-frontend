@@ -17,6 +17,7 @@ import { revalidateToken as revalidateTokenAction } from '../redux/actions/authU
 import NotFound from '../components/NotFound';
 import CoinPage from '../components/Reports/CoinPage/CoinPage';
 import HomePage from '../components/Reports/HomePage/HomePage';
+import Suscription from '../components/Suscription/index';
 
 
 const Routing = ({ isLoading, revalidateToken }) => {
@@ -81,6 +82,14 @@ const Routing = ({ isLoading, revalidateToken }) => {
           element={
             <Layout>
               <CoinPage/>
+            </Layout>
+          }
+        />
+        <Route
+          path="suscription"
+          element={
+            <Layout>
+              <Suscription/>
             </Layout>
           }
         />
