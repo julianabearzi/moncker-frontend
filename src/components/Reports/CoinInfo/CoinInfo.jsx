@@ -51,7 +51,7 @@ const CoinInfo = ( ) => {
 
   useEffect(() => {
     fetchHistoricData();
-  }, [days]);
+  }, []);
 
   const darkTheme = createTheme({
     palette: {
