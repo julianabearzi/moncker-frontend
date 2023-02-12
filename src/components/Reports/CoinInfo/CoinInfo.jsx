@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { Line} from "react-chartjs-2";
-// import { Chart as ChartJS } from 'chart.js/auto'
 import {
   CircularProgress,
   createTheme,
@@ -30,6 +29,7 @@ const chartDays = [
     value: 365,
   },
 ];
+
 
 const CoinInfo = ( ) => {
   const [historicData, setHistoricData] = useState();
