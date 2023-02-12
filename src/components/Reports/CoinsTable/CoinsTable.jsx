@@ -9,7 +9,7 @@ import {useEffect} from 'react'
 import { ThemeProvider } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import {CoinList} from '../config/api';
-import './style.css'
+import './CoinTable.css'
 
 const CoinsTable = () => {
     const [coins,setCoins] = useState([])
