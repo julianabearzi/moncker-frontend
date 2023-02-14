@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
+import swal from 'sweetalert';
+
 
 export default function App() {
     const createOrder = (data, actions)  => {
@@ -16,7 +18,12 @@ export default function App() {
       }
 
       const onApprove = (data, actions) => {
-        alert('Suscripcion actualizada')
+        swal({
+            title: "Good job!",
+            text: "Your suscription in Moncker App is renewed!",
+            icon: "success",
+            button: "Aww yiss!",
+          });
         return actions.order.capture();
       }
 
