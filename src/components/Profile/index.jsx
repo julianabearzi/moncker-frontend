@@ -14,6 +14,7 @@ import UserProfileStats from './UserProfileStats';
 import { userProfile as userProfileAction } from '../../redux/actions/profileActions';
 import { getFavoriteCoins as getFavoriteCoinsAction } from '../../redux/actions/favoriteCoinsActions';
 import './profile.css';
+import Alert from '../Suscription/Alert/Alert';
 
 const Profile = ({
   email,
@@ -34,6 +35,7 @@ const Profile = ({
   const baseUrl = 'https://api.bluelytics.com.ar/v2/latest';
   const baseUrlBtc = 'https://api.coindesk.com/v1/bpi/currentprice.json';
   let date = new Date(createdAt);
+  const sms = document.getElementById('susc');
 
   function suscriptionClick() {
     navigate('/suscription');
@@ -46,13 +48,13 @@ const Profile = ({
     return Math.floor(difference / oneDay);
   }
 
-  const suscription = (date) => {
-    if(date<=21){
-      <Suscription/>
-      return
+  const showMessege = (num) => {
+    if(num>21){
+      sms.style.display = "block"
+    }else {
+      sms.style.display = "none"
     }
-    <Suscription/>
-}
+  }
 
   useEffect(() => {
     getFavoriteCoins(userId);
@@ -215,8 +217,8 @@ const Profile = ({
             <span>Income History</span>
           </button>
         </div>
-        <div id='susc' className='suscription'>
-          <p>Your subscription expired {daysSinceCreatedAt(date)-21} days ago</p>
+        <div id='susc'>
+          <p>Your subscription expired {(daysSinceCreatedAt(date)-21)} days ago</p>
           To renew click  <button onClick={suscriptionClick} >here</button>
         </div>
       </div>
