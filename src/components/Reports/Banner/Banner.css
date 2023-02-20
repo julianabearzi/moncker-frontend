@@ -1,31 +1,12 @@
-.container {
+.containerReport {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: gold;
   font-weight: bold;
   font-size: 30px;
   background-color: black;
-  width: 100%;
-  height: 10vh;
-}
-
-.links {
-  display: flex;
-  justify-content: center;
-  width: 90vw;
-  height: 50vh;
-  flex-wrap: wrap;
-}
-.carouselItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  text-decoration: none;
-  list-style: none;
-  color: white;
-  width: 150px;
-  margin: 30px;
-  height: 150px;
+  width: 95%;
+  height: 10%;
 }

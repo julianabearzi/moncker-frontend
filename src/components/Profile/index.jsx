@@ -12,9 +12,7 @@ import subtract from '../../utils/subtraction';
 import DataGraph from './DataGraph';
 import UserProfileStats from './UserProfileStats';
 import { userProfile as userProfileAction } from '../../redux/actions/profileActions';
-import { getFavoriteCoins as getFavoriteCoinsAction } from '../../redux/actions/favoriteCoinsActions';
 import './profile.css';
-import Alert from '../Suscription/Alert/Alert';
 
 const Profile = ({
   email,
@@ -22,42 +20,40 @@ const Profile = ({
   income,
   userProfile,
   profile,
-  getFavoriteCoins,
-  userId,
-  createdAt
+  isPremium
 }) => {
   const [expResult, setExpResult] = useState([]);
   const [incResult, setIncResult] = useState([]);
   const [balanceResult, setBalanceResult] = useState([]);
   const [valorUsdBlue, setDolarBlue] = useState([]);
   const [valorBtc, setBtcValue] = useState([]);
-  // const baseUrl = "https://api-dolar-argentina.herokuapp.com/api/dolarblue";
   const baseUrl = 'https://api.bluelytics.com.ar/v2/latest';
   const baseUrlBtc = 'https://api.coindesk.com/v1/bpi/currentprice.json';
-  let date = new Date(createdAt);
-  const sms = document.getElementById('susc');
+  const contenedor = document.getElementById('susc');
+  let navigate = useNavigate();
 
   function suscriptionClick() {
     navigate('/suscription');
   }
 
-  const daysSinceCreatedAt = (datee) => {
-    const currentTime = Date.now();
-    const difference = currentTime - datee;
-    const oneDay = 1000 * 60 * 60 * 24;
-    return Math.floor(difference / oneDay);
-  }
+  // const daysSinceCreatedAt = (datee) => {
+  //   const currentTime = Date.now();
+  //   const difference = currentTime - datee;
+  //   const oneDay = 1000 * 60 * 60 * 24;
+  //   return Math.floor(difference / oneDay);
+  // }
 
-  const showMessege = (num) => {
-    if(num>21){
-      sms.style.display = "block"
-    }else {
-      sms.style.display = "none"
-    }
+  const isPremiumUser = (premium) => {
+    setTimeout(() => {
+      if(premium === true){
+        contenedor.style.display = 'none'
+      }else{
+        contenedor.style.display = 'block'
+      }
+    }, 10);
   }
 
   useEffect(() => {
-    getFavoriteCoins(userId);
     let isMounted = true;
     fetch(baseUrl)
       .then((res) => res.json())
@@ -105,7 +101,6 @@ const Profile = ({
       setBalanceResult(calcBalance);
     }
   }, [profile?.income]);
-  let navigate = useNavigate();
   function handleClickExp() {
     navigate('/expenses');
   }
@@ -218,8 +213,10 @@ const Profile = ({
           </button>
         </div>
         <div id='susc'>
-          <p>Your subscription expired {(daysSinceCreatedAt(date)-21)} days ago</p>
-          To renew click  <button onClick={suscriptionClick} >here</button>
+          {isPremiumUser(isPremium)}
+          {/* <p>Your subscription expired {(daysSinceCreatedAt(date)-21)} days ago</p> */}
+          <p>Your subscription expired</p>
+          <p>To renew click <button type="button" onClick={suscriptionClick} id="suscriptionButton">here</button></p>
         </div>
       </div>
     </div>
@@ -229,8 +226,7 @@ const Profile = ({
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      userProfile: userProfileAction,
-      getFavoriteCoins: getFavoriteCoinsAction,
+      userProfile: userProfileAction
     },
     dispatch
   );
@@ -242,7 +238,9 @@ const mapStateToProps = (state) => ({
   expenses: state.profile.expenses,
   income: state.profile.income,
   profile: state.profile,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  isPremium: state.profile.isPremium,
+  id: state.profile.id,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
