@@ -103,6 +103,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => ({
   isLoading: state.auth.isLoading,
+  isAdm: state.auth.isAdmin,
   error: state.auth.error,
 });
 

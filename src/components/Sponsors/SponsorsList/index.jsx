@@ -7,16 +7,16 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import ExpensesItem from '../ExpensesItem';
+import SponsorsItem from '../SponsorsItem';
 
-const ExpensesList = ({ expenses, userId }) => {
+const SponsorsList = ({ sponsors }) => {
   return (
     <div>
       <Paper
         style={{
           overflow: 'auto',
           height: '70vh',
-          width: '65vw',
+          width: '70vw',
           textAlign: 'center',
           marginRight: '5rem',
         }}
@@ -24,20 +24,17 @@ const ExpensesList = ({ expenses, userId }) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Date</TableCell>
-              <TableCell>Description</TableCell>
-              <TableCell>Amount</TableCell>
-              <TableCell>Type</TableCell>
-              <TableCell>Category</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Phone</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Image</TableCell>
               <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {expenses
-              .filter((item) => item.user === userId)
-              .map((exp) => {
-                return <ExpensesItem key={exp._id} exp={exp} />;
-              })}
+            {sponsors.sponsorsList.map((spon) => {
+              return <SponsorsItem key={spon._id} spon={spon} />;
+            })}
           </TableBody>
         </Table>
       </Paper>
@@ -45,12 +42,12 @@ const ExpensesList = ({ expenses, userId }) => {
   );
 };
 
-ExpensesList.propTypes = {
-  expenses: PropTypes.instanceOf(Object).isRequired,
+SponsorsList.propTypes = {
+  sponsors: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = (state) => ({
   userId: state.auth._id,
 });
 
-export default connect(mapStateToProps, null)(ExpensesList);
+export default connect(mapStateToProps, null)(SponsorsList);

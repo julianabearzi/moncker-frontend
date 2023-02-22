@@ -12,7 +12,7 @@ import subtract from '../../utils/subtraction';
 import DataGraph from './DataGraph';
 import UserProfileStats from './UserProfileStats';
 import { userProfile as userProfileAction } from '../../redux/actions/profileActions';
-import { getFavoriteCoins as getFavoriteCoinsAction } from '../../redux/actions/favoriteCoinsActions';
+import { getSponsors as getSponsorsAction } from '../../redux/actions/sponsorsActions';
 import './profile.css';
 
 const Profile = ({
@@ -21,8 +21,7 @@ const Profile = ({
   income,
   userProfile,
   profile,
-  getFavoriteCoins,
-  userId,
+  getSponsors,
 }) => {
   const [expResult, setExpResult] = useState([]);
   const [incResult, setIncResult] = useState([]);
@@ -34,7 +33,7 @@ const Profile = ({
   const baseUrlBtc = 'https://api.coindesk.com/v1/bpi/currentprice.json';
 
   useEffect(() => {
-    getFavoriteCoins(userId);
+    getSponsors();
     let isMounted = true;
     fetch(baseUrl)
       .then((res) => res.json())
@@ -203,7 +202,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       userProfile: userProfileAction,
-      getFavoriteCoins: getFavoriteCoinsAction,
+      getSponsors: getSponsorsAction,
     },
     dispatch
   );
@@ -215,6 +214,7 @@ const mapStateToProps = (state) => ({
   income: state.profile.income,
   profile: state.profile,
   userId: state.auth._id,
+  isAdmin: state.auth.isAdmin,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

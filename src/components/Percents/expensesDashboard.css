@@ -1,0 +1,68 @@
+.percentContainer {
+  margin-right: 5rem;
+  margin-left: 5rem;
+  margin-top: 1rem;
+  width: 75vw;
+  height: 70vh;
+  /* display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: first baseline; */
+}
+.itemCat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  opacity: 50%;
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: 2px solid white;
+}
+.itemCatT {
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(41, 17, 41);
+  padding: 1rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  opacity: 50%;
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.itemTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.itemCat.padding {
+  padding-bottom: 1.5rem;
+}
+
+.buttonShared {
+  margin-top: 1rem;
+  width: 77%;
+  padding: 1rem;
+  opacity: 50%;
+}
+
+.buttonShared:hover {
+  opacity: 90%;
+}
+.textPercent {
+  margin-bottom: 6rem;
+  color: white;
+  text-align: center;
+  opacity: 80%;
+}
