@@ -28,11 +28,13 @@ const Profile = ({
   const [expResult, setExpResult] = useState([]);
   const [incResult, setIncResult] = useState([]);
   const [balanceResult, setBalanceResult] = useState([]);
-  const [valorUsdBlue,setDolarBlue] = useState([]);
-  const [valorBtc,setBtcValue] = useState([]);
-  const baseUrl = "https://api-dolar-argentina.herokuapp.com/api/dolarblue";
-  const baseUrlBtc = "https://api.coindesk.com/v1/bpi/currentprice.json";
+  const [valorUsdBlue, setDolarBlue] = useState([]);
+  const [valorBtc, setBtcValue] = useState([]);
+  const baseUrl = 'https://api.bluelytics.com.ar/v2/latest';
+  const baseUrlBtc = 'https://api.coindesk.com/v1/bpi/currentprice.json';
+  const contenedor = document.getElementById('susc');
   let navigate = useNavigate();
+
   function suscriptionClick() {
     navigate('/suscription');
   }

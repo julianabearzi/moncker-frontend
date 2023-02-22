@@ -11,7 +11,7 @@ const Header = () => {
 
   console.log(currency)
   return (
-    <div className='cointaner'>
+    <div className='headerCointaner'>
         Header
         <Select 
           variant='outlined'

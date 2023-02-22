@@ -176,6 +176,18 @@
   width: 100%;
 }
 
+#susc {
+  display: block;
+}
+
+#susc button {
+  color: red;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
 @media (max-width: 1000px) {
   .profileContainer {
     display: flex;

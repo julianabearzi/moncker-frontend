@@ -1,9 +1,9 @@
 import React from 'react'
-import './style.css'
+import './Banner.css'
 
 const Banner = () => {
   return (
-    <div className='container'>
+    <div className='containerReport'>
         More Popular Cryptos
     </div>
   )

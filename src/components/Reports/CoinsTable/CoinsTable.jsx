@@ -13,7 +13,6 @@ const CoinsTable = () => {
     const [search,setSearch] = useState()
     const [page , setPage] = useState(1);
     const navigate = useNavigate();
-
     const currency = 'usd'
     const symbol = "$"
     const fetchCoins = async () => {

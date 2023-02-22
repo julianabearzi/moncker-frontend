@@ -2,11 +2,11 @@ import React from 'react'
 import Banner from '../Banner/Banner';
 // import Carousel from '../Banner/Carousel';
 import CoinsTable from '../CoinsTable/CoinsTable';
-import './style.css';
+import './HomePage.css';
 
 const HomePage = () => {
   return (
-    <div className='homepage'>
+    <div className='homepageReport'>
       <Banner />
       {/* <Carousel /> */}
       <CoinsTable />

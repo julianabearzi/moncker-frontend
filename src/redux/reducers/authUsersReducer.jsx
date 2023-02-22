@@ -19,7 +19,8 @@ const initialState = {
   error: false,
   firstname: null,
   userExists: false,
-  createdAt: null
+  createdAt: null,
+  isPremium : null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -48,6 +49,7 @@ const authReducer = (state = initialState, action) => {
         createdAt: action.payload.createdAt,
         firstname: action.payload.firstname,
         userExists: false,
+        isPremium: action.payload.isPremium
       };
     case LOG_IN_REJECTED:
       return {
@@ -72,7 +74,8 @@ const authReducer = (state = initialState, action) => {
         error: true,
         firstname: null,
         userExists: false,
-        createdAt: null
+        createdAt: null,
+        isPremium: null
       };
     case REVALIDATE_TOKEN_FINISHED:
       return {
@@ -85,7 +88,8 @@ const authReducer = (state = initialState, action) => {
         error: false,
         firstname: null,
         userExists: false,
-        createdAt: null
+        createdAt: null,
+        isPremium: null
       };
     case REGISTER_FETCHING:
       return {

@@ -39,8 +39,7 @@ export const logIn = (values) => (dispatch) => {
       if (response.errors === undefined) {
         localStorage.setItem('token', response.token);
         localStorage.setItem('token-init-date', new Date().getTime());
-        localStorage.setItem('admin', JSON.stringify(response.isAdmin));
-        dispatch(loginFulfilled(response._id, values.email, response.isAdmin, values.firstname, response.createdAt));
+        dispatch(loginFulfilled(response._id, values.email, response.isAdmin, values.firstname, response.createdAt,response.isPremium));
       } else {
         dispatch(loginRejected());
       }
@@ -72,7 +71,7 @@ export const revalidateToken = () => (dispatch) => {
         localStorage.setItem('token', response.token);
         localStorage.setItem('token-init-date', new Date().getTime());
         dispatch(
-          loginFulfilled(response._id, response.email, response.isAdmin, response.firstname, response.createdAt)
+          loginFulfilled(response._id, response.email, response.isAdmin, response.firstname, response.createdAt,response.isPremium)
         );
       } else {
         dispatch(revalidateTokenFinished());
@@ -122,8 +121,7 @@ export const registerUser = (values) => (dispatch) => {
       if (response._id) {
         localStorage.setItem('token', response.token);
         localStorage.setItem('token-init-date', new Date().getTime());
-        localStorage.setItem('admin', JSON.stringify(response.isAdmin));
-        dispatch(loginFulfilled(response._id, values.email, response.isAdmin, response.createdAt));
+        dispatch(loginFulfilled(response._id, values.email, response.isAdmin, response.createdAt, response.isPremium));
       } else {
         dispatch(registerUserRejected());
       }

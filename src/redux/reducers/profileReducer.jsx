@@ -9,7 +9,9 @@ const initialState = {
   error: false,
   income: [],
   expenses: [],
-  createdAt: false
+  createdAt: false,
+  isPremium: false,
+  _id: false
 };
 
 const authReducer = (state = initialState, action) => {
@@ -19,7 +21,9 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
         error: false,
-        createdAt: false
+        createdAt: false,
+        isPremium: false,
+        id: false
       };
     case USER_PROFILE_FULFILLED:
       return {
@@ -28,14 +32,17 @@ const authReducer = (state = initialState, action) => {
         error: false,
         income: action.payload.income,
         expenses: action.payload.expenses,
-        createdAt: action.payload.createdAt
+        createdAt: action.payload.createdAt,
+        isPremium: action.payload.isPremium,
+        id: action.payload._id
       };
     case USER_PROFILE_REJECTED:
       return {
         ...state,
         isLoading: false,
         error: true,
-        createdAt: false
+        createdAt: false,
+        isPremium: false
       };
 
     default:

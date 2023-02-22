@@ -22,6 +22,7 @@ import CoinPage from '../components/Reports/CoinPage/CoinPage';
 import HomePage from '../components/Reports/HomePage/HomePage';
 import Suscription from '../components/Suscription/index';
 
+
 const Routing = ({ isLoading, revalidateToken }) => {
   useEffect(() => {
     revalidateToken();
