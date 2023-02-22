@@ -49,12 +49,17 @@ const Profile = ({
   const isPremiumUser = (premium) => {
     setTimeout(() => {
       if(premium === true){
-        contenedor.style.display = 'none'
+        if(contenedor){
+          contenedor.style.display = 'none'
+        }
       }else{
-        contenedor.style.display = 'block'
+        if(contenedor){// eslint-disable-line no-lonely-if
+          contenedor.style.display = 'block'
+        }
       }
-    }, 10);
+    }, 1000);
   }
+  
 
   useEffect(() => {
     getSponsors();

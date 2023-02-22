@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
+import { IoLogoTwitter,IoLogoFacebook,IoLogoInstagram,IoLogoWhatsapp} from "react-icons/io5";
 import { connect } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -9,7 +10,6 @@ import { required } from '../../utils/validations';
 import Button from '../Shared/Button';
 import TextInput from '../Shared/TextInput';
 import { logIn as logInAction } from '../../redux/actions/authUsersActions';
-import { IoLogoTwitter,IoLogoFacebook,IoLogoInstagram,IoLogoWhatsapp} from "react-icons/io5";
 import './login.css';
 
 const Login = ({ error, logIn, isLoading }) => {

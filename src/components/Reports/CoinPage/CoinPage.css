@@ -1,0 +1,9 @@
+.cointanerCoinPage {
+  display: flex;
+  justify-content: center;
+  color: white;
+  width: 85vw;
+  height: 80vh;
+  border: 1px solid white;
+  margin-right: 50px;
+}

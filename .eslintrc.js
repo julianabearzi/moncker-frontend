@@ -34,6 +34,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/interactive-supports-focus': 'off',
+    'import/no-named-as-default': 0,
     camelcase: ['error', { properties: 'never' }],
   },
 };

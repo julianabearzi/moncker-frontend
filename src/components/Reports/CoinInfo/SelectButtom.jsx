@@ -12,7 +12,7 @@ const SelectButton = ({ children, selected, onClick }) => {
       textAlign:"center",
       cursor: "pointer",
       backgroundColor: selected ? "gold" : "",
-      color: selected ? "black" : "white",
+      color: selected ? "black" : "black",
       margin:"10px",
       fontWeight: selected ? 700 : 500,
       "&:hover": {
@@ -26,9 +26,9 @@ const SelectButton = ({ children, selected, onClick }) => {
   const classes = useStyles();
 
   return (
-    <span type='button'onClick={onClick} className={classes.selectbutton}>
+    <button type='button'onClick={onClick} className={classes.selectbutton}>
       {children}
-    </span>
+    </button>
   );
 };
 
