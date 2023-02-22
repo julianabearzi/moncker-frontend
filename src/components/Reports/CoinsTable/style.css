@@ -1,0 +1,18 @@
+.coinTableContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+}
+
+.row {
+  background-color: #16171a;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.MuiPagination-ul {
+  color: gold;
+}

@@ -1,0 +1,28 @@
+* {
+  color: white;
+}
+
+.suscContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  height: 90vh;
+}
+
+.susForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px dashed gold;
+  height: 80vh;
+  width: 60vw;
+  font-size: 35px;
+}
+
+ul,
+li {
+  font-size: 20px;
+  color: gold;
+}

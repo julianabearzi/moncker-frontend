@@ -18,6 +18,9 @@ import AdminRoute from './AdminRoute';
 import Sponsors from '../components/Sponsors';
 import { revalidateToken as revalidateTokenAction } from '../redux/actions/authUsersActions';
 import NotFound from '../components/NotFound';
+import CoinPage from '../components/Reports/CoinPage/CoinPage';
+import HomePage from '../components/Reports/HomePage/HomePage';
+import Suscription from '../components/Suscription/index';
 
 const Routing = ({ isLoading, revalidateToken }) => {
   useEffect(() => {
@@ -96,7 +99,30 @@ const Routing = ({ isLoading, revalidateToken }) => {
             </PublicRoute>
           }
         />
-        <Route path="/reports" element={<Layout></Layout>} />
+        <Route
+          path="/reports"
+          element={
+            <Layout>
+              <HomePage/>
+            </Layout>
+          }
+        />
+        <Route
+          path="/suscription"
+          element={
+            <Layout>
+              <Suscription/>
+            </Layout>
+          }
+        />
+        <Route
+          path="/coins/:id"
+          element={
+            <Layout>
+              <CoinPage/>
+            </Layout>
+          }
+        />
         <Route
           path="/"
           element={

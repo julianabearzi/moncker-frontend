@@ -157,6 +157,14 @@
   width: 2px;
   height: 0%;
 }
+
+.suscription button {
+  color: red;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 1rem;
+}
 .btn1 span:after {
   height: 2px;
   width: 0%;

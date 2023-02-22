@@ -1,0 +1,10 @@
+.cointaner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  width: 85vw;
+  height: 50px;
+  margin-right: 50px;
+  background-color: blueviolet;
+}

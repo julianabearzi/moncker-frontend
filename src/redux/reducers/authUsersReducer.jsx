@@ -17,7 +17,9 @@ const initialState = {
   email: null,
   isAdmin: null,
   error: false,
+  firstname: null,
   userExists: false,
+  createdAt: null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -31,7 +33,8 @@ const authReducer = (state = initialState, action) => {
         email: null,
         isAdmin: false,
         error: false,
-        userExists: false,
+        firstname: null,
+        userExists: false
       };
     case LOG_IN_FULFILLED:
       return {
@@ -42,6 +45,8 @@ const authReducer = (state = initialState, action) => {
         email: action.payload.email,
         isAdmin: action.payload.isAdmin,
         error: false,
+        createdAt: action.payload.createdAt,
+        firstname: action.payload.firstname,
         userExists: false,
       };
     case LOG_IN_REJECTED:
@@ -53,6 +58,7 @@ const authReducer = (state = initialState, action) => {
         email: null,
         isAdmin: false,
         error: true,
+        firstname: null,
         userExists: false,
       };
     case REVALIDATE_TOKEN_FETCHING:
@@ -64,7 +70,9 @@ const authReducer = (state = initialState, action) => {
         email: null,
         isAdmin: false,
         error: true,
+        firstname: null,
         userExists: false,
+        createdAt: null
       };
     case REVALIDATE_TOKEN_FINISHED:
       return {
@@ -75,7 +83,9 @@ const authReducer = (state = initialState, action) => {
         email: null,
         isAdmin: false,
         error: false,
+        firstname: null,
         userExists: false,
+        createdAt: null
       };
     case REGISTER_FETCHING:
       return {
@@ -85,6 +95,7 @@ const authReducer = (state = initialState, action) => {
         _id: null,
         email: null,
         error: false,
+        firstname: null,
         userExists: false,
       };
     case REGISTER_FULFILLED:
@@ -95,6 +106,7 @@ const authReducer = (state = initialState, action) => {
         _id: action.payload._id,
         email: action.payload.email,
         error: false,
+        firstname: action.payload.firstname,
         userExists: false,
       };
     case REGISTER_REJECTED:
@@ -105,6 +117,7 @@ const authReducer = (state = initialState, action) => {
         _id: null,
         email: null,
         error: false,
+        firstname: null,
         userExists: true,
       };
     case LOG_OUT:
@@ -115,6 +128,7 @@ const authReducer = (state = initialState, action) => {
         _id: null,
         email: null,
         error: false,
+        firstname: null,
         userExists: false,
       };
     default:

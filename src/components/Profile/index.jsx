@@ -22,15 +22,37 @@ const Profile = ({
   userProfile,
   profile,
   getSponsors,
+  isPremium,
+  // createdAt
 }) => {
   const [expResult, setExpResult] = useState([]);
   const [incResult, setIncResult] = useState([]);
   const [balanceResult, setBalanceResult] = useState([]);
-  const [valorUsdBlue, setDolarBlue] = useState([]);
-  const [valorBtc, setBtcValue] = useState([]);
-  // const baseUrl = "https://api-dolar-argentina.herokuapp.com/api/dolarblue";
-  const baseUrl = 'https://api.bluelytics.com.ar/v2/latest';
-  const baseUrlBtc = 'https://api.coindesk.com/v1/bpi/currentprice.json';
+  const [valorUsdBlue,setDolarBlue] = useState([]);
+  const [valorBtc,setBtcValue] = useState([]);
+  const baseUrl = "https://api-dolar-argentina.herokuapp.com/api/dolarblue";
+  const baseUrlBtc = "https://api.coindesk.com/v1/bpi/currentprice.json";
+  let navigate = useNavigate();
+  function suscriptionClick() {
+    navigate('/suscription');
+  }
+
+  // const daysSinceCreatedAt = (datee) => {
+  //   const currentTime = Date.now();
+  //   const difference = currentTime - datee;
+  //   const oneDay = 1000 * 60 * 60 * 24;
+  //   return Math.floor(difference / oneDay);
+  // }
+
+  const isPremiumUser = (premium) => {
+    setTimeout(() => {
+      if(premium === true){
+        contenedor.style.display = 'none'
+      }else{
+        contenedor.style.display = 'block'
+      }
+    }, 10);
+  }
 
   useEffect(() => {
     getSponsors();
@@ -81,7 +103,7 @@ const Profile = ({
       setBalanceResult(calcBalance);
     }
   }, [profile?.income]);
-  let navigate = useNavigate();
+  
   function handleClickExp() {
     navigate('/expenses');
   }
@@ -193,6 +215,12 @@ const Profile = ({
             <span>Income History</span>
           </button>
         </div>
+        <div id='susc'>
+          {isPremiumUser(isPremium)}
+          {/* <p>Your subscription expired {(daysSinceCreatedAt(date)-21)} days ago</p> */}
+          <p>Your subscription expired</p>
+          <p>To renew click <button type="button" onClick={suscriptionClick} id="suscriptionButton">here</button></p>
+        </div>
       </div>
     </div>
   );
@@ -210,11 +238,13 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => ({
   email: state.auth.email,
+  createdAt: state.profile.createdAt,
   expenses: state.profile.expenses,
   income: state.profile.income,
   profile: state.profile,
   userId: state.auth._id,
   isAdmin: state.auth.isAdmin,
+  isLoading: state.isLoading
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

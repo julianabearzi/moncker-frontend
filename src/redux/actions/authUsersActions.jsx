@@ -16,9 +16,9 @@ export const loginFetching = () => ({
   type: LOG_IN_FETCHING,
 });
 
-export const loginFulfilled = (_id, email, isAdmin) => ({
+export const loginFulfilled = (_id, email, isAdmin, firstname,createdAt) => ({
   type: LOG_IN_FULFILLED,
-  payload: { _id, email, isAdmin },
+  payload: { _id, email, isAdmin, firstname, createdAt },
 });
 
 export const loginRejected = () => ({
@@ -39,8 +39,8 @@ export const logIn = (values) => (dispatch) => {
       if (response.errors === undefined) {
         localStorage.setItem('token', response.token);
         localStorage.setItem('token-init-date', new Date().getTime());
-        dispatch(loginFulfilled(response._id, values.email, response.isAdmin));
         localStorage.setItem('admin', JSON.stringify(response.isAdmin));
+        dispatch(loginFulfilled(response._id, values.email, response.isAdmin, values.firstname, response.createdAt));
       } else {
         dispatch(loginRejected());
       }
@@ -72,7 +72,7 @@ export const revalidateToken = () => (dispatch) => {
         localStorage.setItem('token', response.token);
         localStorage.setItem('token-init-date', new Date().getTime());
         dispatch(
-          loginFulfilled(response._id, response.email, response.isAdmin)
+          loginFulfilled(response._id, response.email, response.isAdmin, response.firstname, response.createdAt)
         );
       } else {
         dispatch(revalidateTokenFinished());
@@ -123,8 +123,7 @@ export const registerUser = (values) => (dispatch) => {
         localStorage.setItem('token', response.token);
         localStorage.setItem('token-init-date', new Date().getTime());
         localStorage.setItem('admin', JSON.stringify(response.isAdmin));
-
-        dispatch(loginFulfilled(response._id, values.email, response.isAdmin));
+        dispatch(loginFulfilled(response._id, values.email, response.isAdmin, response.createdAt));
       } else {
         dispatch(registerUserRejected());
       }

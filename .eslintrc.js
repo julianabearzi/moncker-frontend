@@ -16,6 +16,7 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
+    'no-undef': 'off',
     'react/prop-types': 'off',
     'arrow-body-style': 'off',
     'prefer-const': 'off',
@@ -27,6 +28,9 @@ module.exports = {
     'no-return-assign': 'off',
     'no-unused-expressions': 'off',
     'no-plusplus': 'off',
+    'import/prefer-default-export': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/interactive-supports-focus': 'off',
     camelcase: ['error', { properties: 'never' }],
   },
 };
