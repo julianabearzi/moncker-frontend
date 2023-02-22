@@ -9,6 +9,7 @@ import { required } from '../../utils/validations';
 import Button from '../Shared/Button';
 import TextInput from '../Shared/TextInput';
 import { logIn as logInAction } from '../../redux/actions/authUsersActions';
+import { IoLogoTwitter,IoLogoFacebook,IoLogoInstagram,IoLogoWhatsapp} from "react-icons/io5";
 import './login.css';
 
 const Login = ({ error, logIn, isLoading }) => {
@@ -87,6 +88,14 @@ const Login = ({ error, logIn, isLoading }) => {
             <Button btnLabel="REGISTER " />
           </Link>
         </div>
+      </div>
+      <div className='socialMedia'>
+          <ul>
+            <li><a href='https://twitter.com/MonckerApp' target="_blanck"><IoLogoTwitter size="30px" aria-label="Save" color="white"/></a></li>
+            <li><a href='https://www.facebook.com/profile.php?id=100086786425145' target="_blanck"><IoLogoFacebook size="30px"  aria-label="Save" color="white"/></a></li>
+            <li><a href='https://www.instagram.com/fintracker_/' target="_blanck"><IoLogoInstagram size="30px"  aria-label="Save" color="white"/></a></li>
+            <li><a href='https://t.me/+mVkYNzxfng81YTNh' target="_blanck"><IoLogoWhatsapp size="30px" aria-label="Save" color="white"/></a></li>
+          </ul>
       </div>
     </div>
   );
