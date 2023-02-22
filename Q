@@ -1,0 +1,126 @@
+*   [1;34m2fed377[m - [1;32m(23 seconds ago)[m [37mFix eslintrc.js[m [2;37m- Fausto Azzaretti[m[1;33m (HEAD -> developmentBackup)[m
+[31m|[m[32m\[m  
+* [32m\[m   [1;34m7442306[m - [1;32m(20 minutes ago)[m [37mFix merge problems[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[33m|[m[34m\[m [32m\[m  
+[33m|[m * [32m|[m [1;34m814f76a[m - [1;32m(2 weeks ago)[m [37mFix chartDays[m [2;37m- Fausto Azzaretti[m[1;33m (febreroReports)[m
+[33m|[m * [32m|[m [1;34md778537[m - [1;32m(2 weeks ago)[m [37mModify eslintrc rules[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[33m|[m * [32m|[m [1;34mdde116d[m - [1;32m(2 weeks ago)[m [37mReports and Suscription[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [34m|[m [32m|[m [1;34m01e3584[m - [1;32m(74 minutes ago)[m [37madd sponsors and fix percents[m [2;37m- Juliana Bearzi[m[1;33m (origin/development, development)[m
+[34m|[m [34m|[m [32m|[m * [1;34md37a5af[m - [1;32m(74 minutes ago)[m [37mAdd socialMedia links[m [2;37m- Fausto Azzaretti[m[1;33m (socialMedia)[m
+[34m|[m [34m|[m [32m|[m[32m/[m  
+[34m|[m [34m|[m * [1;34mbc34023[m - [1;32m(2 days ago)[m [37mAdd suscription funcionality[m [2;37m- Fausto Azzaretti[m[1;33m (suscription)[m
+[34m|[m [34m|[m * [1;34m445667d[m - [1;32m(9 days ago)[m [37mAdd confirm alert payment[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m [34m|[m * [1;34m3a9eead[m - [1;32m(9 days ago)[m [37mAdd suscription payment function[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m [34m|[m * [1;34m7892346[m - [1;32m(10 days ago)[m [37mAdd suscription message[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m [34m|[m * [1;34m49d82b4[m - [1;32m(10 days ago)[m [37mModify Actions in Redux[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m [34m|[m * [1;34m4d432c0[m - [1;32m(10 days ago)[m [37mAdd suscription route[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m [34m|[m * [1;34mc620bc4[m - [1;32m(10 days ago)[m [37mAdd suscription folder[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m [34m|[m * [1;34m1a4a402[m - [1;32m(10 days ago)[m [37mAdd ChartJs library[m [2;37m- Fausto Azzaretti[m[1;33m (traspaso)[m
+[34m|[m [34m|[m * [1;34m5182b37[m - [1;32m(10 days ago)[m [37mFinish reports importation[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m [34m|[m * [1;34m97d0986[m - [1;32m(10 days ago)[m [37mModify CoinInfo[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m [34m|[m * [1;34ma394298[m - [1;32m(10 days ago)[m [37mModify CoinTable[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m [34m|[m * [1;34mc35bc2d[m - [1;32m(10 days ago)[m [37mFix eslint problems[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m [34m|[m * [1;34m7d7fe49[m - [1;32m(10 days ago)[m [37mInstall buffer dependence[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m [34m|[m * [1;34m207f948[m - [1;32m(10 days ago)[m [37mDelete data.js file[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m [34m|[m[34m/[m  
+[34m|[m[34m/[m[34m|[m   
+* [34m|[m [1;34mbd131c8[m - [1;32m(2 weeks ago)[m [37madd expenses percents[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [34m|[m [1;34m7565706[m - [1;32m(2 months ago)[m [37mchange api dolar[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [34m|[m   [1;34m24bd65e[m - [1;32m(3 months ago)[m [37mupdate favorite coins[m [2;37m- Juliana Bearzi[m[1;33m (origin/favorite-coins)[m
+[36m|[m[1;31m\[m [34m\[m  
+[36m|[m * [34m|[m [1;34m898f8ea[m - [1;32m(3 months ago)[m [37mtemporarily changes[m [2;37m- Juliana Bearzi[m[1;33m[m
+[36m|[m [34m|[m[34m/[m  
+[36m|[m * [1;34m90d3f08[m - [1;32m(3 months ago)[m [37mRemove social media links[m [2;37m- Fausto Azzaretti[m[1;33m (origin/cryptoChart2, origin/chart, cryptoChart2, chart)[m
+[36m|[m * [1;34m8be73e8[m - [1;32m(3 months ago)[m [37mFavorite function[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [1;31m|[m [1;34ma2592d9[m - [1;32m(3 months ago)[m [37madd favorite coins of user[m [2;37m- Juliana Bearzi[m[1;33m[m
+[1;31m|[m [1;31m|[m * [1;34m6513acf[m - [1;32m(4 months ago)[m [37mOn cryptoListTable2: !!GitHub_Desktop<cryptoListTable2>[m [2;37m- Fausto Azzaretti[m[1;33m (refs/stash)[m
+[1;31m|[m [1;31m|[m[1;31m/[m[1;33m|[m 
+[1;31m|[m [1;31m|[m * [1;34me937b1e[m - [1;32m(4 months ago)[m [37mindex on cryptoListTable2: a60f9c3 Fix layout[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[1;31m|[m [1;31m|[m[1;31m/[m  
+[1;31m|[m * [1;34ma60f9c3[m - [1;32m(4 months ago)[m [37mFix layout[m [2;37m- Fausto Azzaretti[m[1;33m (cryptoListTable2)[m
+[1;31m|[m * [1;34m50f9c83[m - [1;32m(4 months ago)[m [37mAdd coinAction[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[1;31m|[m[1;31m/[m  
+* [1;34m5785112[m - [1;32m(6 months ago)[m [37mcrypto list improvements[m [2;37m- Juliana Bearzi[m[1;33m[m
+*   [1;34m7a1aebc[m - [1;32m(6 months ago)[m [37mMerge pull request #10 from julianabearzi/cryptoList[m [2;37m- Juliana[m[1;33m (cryptoListTable)[m
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [1;34me52d38c[m - [1;32m(6 months ago)[m [37mAdd CryptoList folder and route[m [2;37m- Fausto Azzaretti[m[1;33m (origin/cryptoList, cryptoList)[m
+* [1;35m|[m   [1;34m966580a[m - [1;32m(6 months ago)[m [37mMerge pull request #9 from julianabearzi/balance[m [2;37m- Juliana[m[1;33m[m
+[1;36m|[m[31m\[m [1;35m\[m  
+[1;36m|[m * [1;35m|[m [1;34m915976c[m - [1;32m(6 months ago)[m [37mAdd isMounted to fix useEffect problem[m [2;37m- Fausto Azzaretti[m[1;33m (origin/balance, balance)[m
+[1;36m|[m [1;35m|[m[1;35m/[m  
+[1;36m|[m * [1;34m5f6a5d7[m - [1;32m(6 months ago)[m [37mAdd btc, usd balance[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[1;36m|[m[1;36m/[m  
+* [1;34m86192e5[m - [1;32m(9 months ago)[m [37madd crypto types to select expenses[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m7e9d4dd[m - [1;32m(9 months ago)[m [37madd crypto types to select[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m7cc5fd8[m - [1;32m(9 months ago)[m [37mFix errors[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [1;34m776f66b[m - [1;32m(9 months ago)[m [37mminor fix in expenses[m [2;37m- Juliana Bearzi[m[1;33m (origin/feature/profile)[m
+* [1;34m5d6adb5[m - [1;32m(9 months ago)[m [37mfull profile component[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34mc698ae2[m - [1;32m(9 months ago)[m [37msimple functionality for balance income/expenses[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m363b5e9[m - [1;32m(9 months ago)[m [37madd component to show amount of expenses and income[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34mdaa2482[m - [1;32m(9 months ago)[m [37mfunctionality to calculate transactions[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34mc5fa9ac[m - [1;32m(9 months ago)[m [37madd data graph[m [2;37m- Juliana Bearzi[m[1;33m[m
+*   [1;34m711a239[m - [1;32m(9 months ago)[m [37mMerge branch 'expensesCommit' into development[m [2;37m- Juliana Bearzi[m[1;33m[m
+[32m|[m[33m\[m  
+[32m|[m * [1;34m52123de[m - [1;32m(9 months ago)[m [37mfixes on redirect when an expenses action happens[m [2;37m- Juliana Bearzi[m[1;33m (origin/expensesCommit)[m
+[32m|[m * [1;34mfea3c9b[m - [1;32m(9 months ago)[m [37mFix some errors[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34md9b76fa[m - [1;32m(9 months ago)[m [37mAdd form actions[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34m8342595[m - [1;32m(9 months ago)[m [37mFix errors[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34ma46652e[m - [1;32m(10 months ago)[m [37mAdd ExpensesList component[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34m44922b4[m - [1;32m(10 months ago)[m [37mAdd ExpensesItem component[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34mf00e7e8[m - [1;32m(10 months ago)[m [37mFix errors[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34md0032e7[m - [1;32m(10 months ago)[m [37mAdd ExpensesForm component[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34m065d7d6[m - [1;32m(10 months ago)[m [37mCreate a ExpConfirmationMessege component[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34mf9fe8cb[m - [1;32m(10 months ago)[m [37mAdd expensesTypes file[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34m941671a[m - [1;32m(10 months ago)[m [37mAdd expensesReducer file[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34m3c1ca8d[m - [1;32m(10 months ago)[m [37mAdd expensesActions file[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34m09eaa0d[m - [1;32m(10 months ago)[m [37mCreate Expenses component[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34mdffc431[m - [1;32m(10 months ago)[m [37mAdd ExpensesList folder[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34md40353b[m - [1;32m(10 months ago)[m [37mAdd ExpensesItem folder[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34me30f22e[m - [1;32m(10 months ago)[m [37mAdd ExpensesForm folder[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[32m|[m * [1;34m32cba0e[m - [1;32m(10 months ago)[m [37mAdd ExpConfirmationMessegage folder[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [33m|[m [1;34m41c904c[m - [1;32m(9 months ago)[m [37mfixes on redirect when an income action happens[m [2;37m- Juliana Bearzi[m[1;33m[m
+[33m|[m[33m/[m  
+* [1;34m71f8009[m - [1;32m(10 months ago)[m [37madd expenses component & changes in menuBar[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m3b7ac97[m - [1;32m(10 months ago)[m [37mnot found image[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m99a745f[m - [1;32m(10 months ago)[m [37mfully implemented income component[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34mfd931ac[m - [1;32m(10 months ago)[m [37mregister improvements & not found route added[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34ma2ea159[m - [1;32m(10 months ago)[m [37mrouting improvements[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m8486efa[m - [1;32m(10 months ago)[m [37mminor fix[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m7bc35fa[m - [1;32m(10 months ago)[m [37mregister set up, register component and some minor changes[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34mdc56641[m - [1;32m(10 months ago)[m [37madd temporary routing[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m4568488[m - [1;32m(10 months ago)[m [37madd income initial component[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m6bb8d57[m - [1;32m(10 months ago)[m [37madd basic modal to later[m [2;37m- Juliana Bearzi[m[1;33m[m
+*   [1;34ma340743[m - [1;32m(10 months ago)[m [37madd menu bar and solve conflicts[m [2;37m- Juliana Bearzi[m[1;33m[m
+[34m|[m[35m\[m  
+[34m|[m * [1;34mf0d38d3[m - [1;32m(10 months ago)[m [37mAdd hover in Icons[m [2;37m- Fausto Azzaretti[m[1;33m (origin/menu-layaout)[m
+[34m|[m * [1;34m2f67e46[m - [1;32m(10 months ago)[m [37mChange the icons[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m * [1;34m1030115[m - [1;32m(10 months ago)[m [37mAdd title in menuContainer[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m * [1;34m8e4d5f2[m - [1;32m(10 months ago)[m [37mAdd background color in menuContainer class[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m * [1;34mff7925a[m - [1;32m(10 months ago)[m [37mAdd icon div, and icons[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m * [1;34m4672c1b[m - [1;32m(10 months ago)[m [37mAdd react icons dependences[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[34m|[m * [1;34md3701be[m - [1;32m(10 months ago)[m [37mAdd menuContainer and navbar[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [35m|[m [1;34m44ee974[m - [1;32m(10 months ago)[m [37madd public and private route and login improvements[m [2;37m- Juliana Bearzi[m[1;33m[m
+[35m|[m[35m/[m  
+* [1;34m8c6ebb9[m - [1;32m(10 months ago)[m [37madd profile component[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m3824199[m - [1;32m(10 months ago)[m [37madd redux setup and login functionality[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m33ffc41[m - [1;32m(10 months ago)[m [37mminor styling changes[m [2;37m- Juliana Bearzi[m[1;33m (origin/login)[m
+* [1;34ma315fa5[m - [1;32m(10 months ago)[m [37mChange Sign Up font family[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[35m|[m * [1;34m0e7be5d[m - [1;32m(10 months ago)[m [37mAdd media query[m [2;37m- Fausto Azzaretti[m[1;33m (origin/register)[m
+[35m|[m * [1;34m3ba1064[m - [1;32m(10 months ago)[m [37mAdd textField to Register component from Material Ui[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[35m|[m * [1;34m6542405[m - [1;32m(10 months ago)[m [37mAdd registerBox in Register component[m [2;37m- Fausto Azzaretti[m[1;33m[m
+[35m|[m[35m/[m  
+* [1;34mf5a4f63[m - [1;32m(10 months ago)[m [37mChange Username for Email[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [1;34mff5486e[m - [1;32m(10 months ago)[m [37mChange the font family for Moncker App title[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [1;34mf3964ed[m - [1;32m(10 months ago)[m [37mChange the latest button for new button in Material UI[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [1;34mf1600f0[m - [1;32m(10 months ago)[m [37mAdd material ui[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [1;34m5f423b7[m - [1;32m(10 months ago)[m [37mModify login.css[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [1;34m4915ade[m - [1;32m(10 months ago)[m [37mAdd all classes styles in login.css[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [1;34m98d5c92[m - [1;32m(10 months ago)[m [37mChange class for className in Login.jsx file[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [1;34m6b510f7[m - [1;32m(10 months ago)[m [37mAdd Sign In and Sign Up divs[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [1;34m5b77ec8[m - [1;32m(10 months ago)[m [37mAdd container, and loginBox divs[m [2;37m- Fausto Azzaretti[m[1;33m[m
+* [1;34m4627ff1[m - [1;32m(10 months ago)[m [37madd first routing and some initial components[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m08152e2[m - [1;32m(10 months ago)[m [37mignore file[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m5a93b4b[m - [1;32m(10 months ago)[m [37msmall fix[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m7103c7d[m - [1;32m(10 months ago)[m [37madd lint, prettier and husky configuration & delete unused files[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m7ba3fcf[m - [1;32m(10 months ago)[m [37mInitialize react app[m [2;37m- Juliana Bearzi[m[1;33m[m
+* [1;34m58669b9[m - [1;32m(10 months ago)[m [37mInitial commit[m [2;37m- Juliana[m[1;33m (origin/main, origin/HEAD, main, cryptoChart)[m

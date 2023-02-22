@@ -6,11 +6,7 @@ import { useParams } from 'react-router-dom'
 import ReactHtmlParser from "react-html-parser";
 import {SingleCoin} from '../config/api';
 import CoinInfo from '../CoinInfo/CoinInfo';
-<<<<<<< HEAD
-import './index.css'
-=======
 import './CoinPage.css'
->>>>>>> suscription
 
 const CoinPage = () => {
 
