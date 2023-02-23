@@ -40,6 +40,7 @@ export const logIn = (values) => (dispatch) => {
         localStorage.setItem('token', response.token);
         localStorage.setItem('token-init-date', new Date().getTime());
         dispatch(loginFulfilled(response._id, values.email, response.isAdmin, values.firstname, response.createdAt,response.isPremium));
+        localStorage.setItem('admin', JSON.stringify(response.isAdmin));
       } else {
         dispatch(loginRejected());
       }
@@ -121,6 +122,7 @@ export const registerUser = (values) => (dispatch) => {
       if (response._id) {
         localStorage.setItem('token', response.token);
         localStorage.setItem('token-init-date', new Date().getTime());
+        localStorage.setItem('admin', JSON.stringify(response.isAdmin));
         dispatch(loginFulfilled(response._id, values.email, response.isAdmin, response.createdAt, response.isPremium));
       } else {
         dispatch(registerUserRejected());
