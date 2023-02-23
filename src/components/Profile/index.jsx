@@ -32,7 +32,6 @@ const Profile = ({
   const [valorBtc, setBtcValue] = useState([]);
   const baseUrl = 'https://api.bluelytics.com.ar/v2/latest';
   const baseUrlBtc = 'https://api.coindesk.com/v1/bpi/currentprice.json';
-  const contenedor = document.getElementById('susc');
   let navigate = useNavigate();
 
   function suscriptionClick() {
@@ -47,18 +46,17 @@ const Profile = ({
   // }
 
   const isPremiumUser = (premium) => {
-    setTimeout(() => {
-      if(premium === true){
-        if(contenedor){
-          contenedor.style.display = 'none'
+    const contenedor = document.getElementById("susc");
+    if (contenedor !== null) {
+      setTimeout(() => {
+        if (premium) {
+          contenedor.style.display = "none";
+        } else {
+          contenedor.style.display = "block";
         }
-      }else{
-        if(contenedor){// eslint-disable-line no-lonely-if
-          contenedor.style.display = 'block'
-        }
-      }
-    }, 1000);
-  }
+      }, 100);
+    }
+  };
   
 
   useEffect(() => {
@@ -250,6 +248,7 @@ const mapStateToProps = (state) => ({
   income: state.profile.income,
   profile: state.profile,
   userId: state.auth._id,
+  isPremium: state.profile.isPremium,
   isAdmin: state.auth.isAdmin,
   isLoading: state.isLoading
 });

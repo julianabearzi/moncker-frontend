@@ -2,7 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { Line} from "react-chartjs-2";
+/* eslint-disable no-unused-vars */
 import { Chart as ChartJS } from 'chart.js/auto'
+/* eslint-enable no-unused-vars */
 import {
   CircularProgress,
   createTheme,
@@ -12,6 +14,8 @@ import {
 import { HistoricalChart } from "../config/api";
 import SelectButton from "./SelectButtom";
 import { chartDays } from "../config/data";
+
+
 
 const CoinInfo = ( ) => {
   const [historicData, setHistoricData] = useState();

@@ -35,6 +35,10 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/interactive-supports-focus': 'off',
     'import/no-named-as-default': 0,
+    'no-unused-vars': [
+      'error',
+      { args: 'none', ignoreRestSiblings: true, varsIgnorePattern: 'ChartJS' },
+    ],
     camelcase: ['error', { properties: 'never' }],
   },
 };
