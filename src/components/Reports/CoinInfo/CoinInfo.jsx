@@ -15,8 +15,6 @@ import { HistoricalChart } from "../config/api";
 import SelectButton from "./SelectButtom";
 import { chartDays } from "../config/data";
 
-
-
 const CoinInfo = ( ) => {
   const [historicData, setHistoricData] = useState();
   const [days, setDays] = useState(1);
