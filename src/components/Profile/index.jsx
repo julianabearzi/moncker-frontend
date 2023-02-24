@@ -23,7 +23,7 @@ const Profile = ({
   profile,
   getSponsors,
   isPremium,
-  // createdAt
+  createdAt
 }) => {
   const [expResult, setExpResult] = useState([]);
   const [incResult, setIncResult] = useState([]);
@@ -38,12 +38,12 @@ const Profile = ({
     navigate('/suscription');
   }
 
-  // const daysSinceCreatedAt = (datee) => {
-  //   const currentTime = Date.now();
-  //   const difference = currentTime - datee;
-  //   const oneDay = 1000 * 60 * 60 * 24;
-  //   return Math.floor(difference / oneDay);
-  // }
+  const daysSinceCreatedAt = (datee) => {
+    const currentTime = Date.now();
+    const difference = currentTime - datee;
+    const oneDay = 1000 * 60 * 60 * 24;
+    return Math.floor(difference / oneDay);
+  }
 
   const isPremiumUser = (premium) => {
     const contenedor = document.getElementById("susc");
@@ -225,6 +225,7 @@ const Profile = ({
           {/* <p>Your subscription expired {(daysSinceCreatedAt(date)-21)} days ago</p> */}
           <p>Your subscription expired</p>
           <p>To renew click <button type="button" onClick={suscriptionClick} id="suscriptionButton">here</button></p>
+          <p>Pass {daysSinceCreatedAt(createdAt)} to create account.</p>
         </div>
       </div>
     </div>
