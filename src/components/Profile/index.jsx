@@ -30,6 +30,7 @@ const Profile = ({
   showModal,
   modalType,
   // createdAt
+  createdAt,
 }) => {
   const [expResult, setExpResult] = useState([]);
   const [incResult, setIncResult] = useState([]);
@@ -48,24 +49,34 @@ const Profile = ({
     showModal(modalTypes.VIEW_PERCENTS);
   };
 
-  // const daysSinceCreatedAt = (datee) => {
-  //   const currentTime = Date.now();
-  //   const difference = currentTime - datee;
-  //   const oneDay = 1000 * 60 * 60 * 24;
-  //   return Math.floor(difference / oneDay);
-  // }
+  function calcularDiasPasados(fecha) {
+    const fechaDada = new Date(fecha);
+    const fechaActual = new Date();
+    const diferenciaMilisegundos = fechaActual.getTime() - fechaDada.getTime();
+    const diasPasados = Math.round(diferenciaMilisegundos / 86400000);
+    return diasPasados;
+  }
 
-  const isPremiumUser = (premium) => {
-    const contenedor = document.getElementById('susc');
-    if (contenedor !== null) {
-      setTimeout(() => {
-        if (premium) {
-          contenedor.style.display = 'none';
-        } else {
-          contenedor.style.display = 'block';
-        }
-      }, 100);
-    }
+  // const isPremiumUser = (premium) => {
+  //   const contenedor = document.getElementById("susc");
+  //  setTimeout(() => {
+  //   if (premium) {
+  //     contenedor.style.display = "none";
+  //   } else {
+  //     contenedor.style.display = "block";
+  //   }
+  //  }, 1000);
+  // };
+
+  const isExpired = (number) => {
+    const alert = document.getElementById('alert');
+    setTimeout(() => {
+      if (alert && number >= 7) {
+        alert.style.display = 'block';
+      } else if (alert) {
+        alert.style.display = 'none';
+      }
+    }, 100);
   };
 
   useEffect(() => {
@@ -237,20 +248,51 @@ const Profile = ({
           </button>
         </div>
         <Modal>{modalType === 'VIEW_PERCENTS' && <Percent />}</Modal>
-        <div id="susc">
+        {/* <div id='susc'>
           {isPremiumUser(isPremium)}
-          {/* <p>Your subscription expired {(daysSinceCreatedAt(date)-21)} days ago</p> */}
-          <p>Your subscription expired</p>
-          <p>
-            To renew click{' '}
-            <button
-              type="button"
-              onClick={suscriptionClick}
-              id="suscriptionButton"
-            >
-              here
-            </button>
-          </p>
+          {isExpired(calcularDiasPasados(createdAt))}
+          <p>Pass {calcularDiasPasados(createdAt)} days to create your account.</p>
+          <div id="circular-progress" className="circular">
+            <CircularProgress />
+          </div>
+          <div id='passDays'>
+            <p>You have {7-(calcularDiasPasados(createdAt))} free days!!!!!</p>
+          </div>
+          <div id='alert'>
+            <p>Your subscription expired</p>
+            <p>To renew click <button type="button" onClick={suscriptionClick} id="suscriptionButton">here</button></p>
+          </div> */}
+        <div>
+          {isPremium === false && (
+            <>
+              {isExpired(calcularDiasPasados(createdAt))}
+              {console.log(
+                `Pass ${calcularDiasPasados(
+                  createdAt
+                )} days to create your account.`
+              )}
+              <div id="passDays">
+                {console.log(
+                  `You have ${
+                    7 - calcularDiasPasados(createdAt)
+                  } free days!!!!!`
+                )}
+              </div>
+              <div id="alert">
+                <p>Your subscription expired</p>
+                <p>
+                  To renew click{' '}
+                  <button
+                    type="button"
+                    onClick={suscriptionClick}
+                    id="suscriptionButton"
+                  >
+                    here
+                  </button>
+                </p>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
