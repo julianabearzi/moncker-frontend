@@ -70,13 +70,12 @@ const Profile = ({
 
   const isExpired = (number) => {
     const alert = document.getElementById('alert');
-    setTimeout(() => {
-      if (alert && number >= 7) {
-        alert.style.display = 'block';
-      } else if (alert) {
-        alert.style.display = 'none';
-      }
-    }, 100);
+
+    if (alert && number >= 7) {
+      alert.style.display = 'block';
+    } else if (alert) {
+      alert.style.display = 'none';
+    }
   };
 
   useEffect(() => {
