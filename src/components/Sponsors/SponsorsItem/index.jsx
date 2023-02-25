@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-
+import React from 'react';
 import { TiTimesOutline, TiEdit } from 'react-icons/ti';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -11,9 +10,6 @@ import modalTypes from '../../../redux/types/modalTypes';
 import { showModal as showModalAction } from '../../../redux/actions/modalActions';
 
 const SponsorsItem = ({ spon, showModal }) => {
-  useEffect(() => {
-    console.log(spon);
-  }, []);
   const { _id, name, phone, email, image } = spon;
 
   const showDeleteModal = (sponsorId) => {
@@ -34,7 +30,7 @@ const SponsorsItem = ({ spon, showModal }) => {
       <TableCell>{phone}</TableCell>
       <TableCell>{email}</TableCell>
       <TableCell>
-        <img alt="img" src={image} />
+        <img alt="img" src={image} style={{ width: '80px', height: '80px' }} />
       </TableCell>
       <TableCell>
         <TiTimesOutline

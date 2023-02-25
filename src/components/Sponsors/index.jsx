@@ -23,7 +23,7 @@ const Sponsors = ({
     getSponsors();
   }, []);
 
-  const showAddModal = () => {
+  const showAddModalSponsor = () => {
     showModal(modalTypes.ADD_SPONSORS);
   };
 
@@ -33,16 +33,18 @@ const Sponsors = ({
         <LinearProgress color="success" />
       ) : (
         <div className="sponsorsContainer">
-          <Button btnLabel="Add Sponsor" onClick={() => showAddModal()}>
+          <Button btnLabel="Add Sponsor" onClick={() => showAddModalSponsor()}>
             Add Sponsor
           </Button>
 
           <Modal>
             {modalType === 'ADD_SPONSORS' && <SponsorsForm />}
             {modalType === 'DELETE_SPONSORS' && (
-              <SponsorConfirmationMessage sponsorsId={meta.id} />
+              <SponsorConfirmationMessage sponsorId={meta.id} />
             )}
-            {modalType === 'UPDATE_SPONSORS' && <SponsorsForm inc={meta.inc} />}
+            {modalType === 'UPDATE_SPONSORS' && (
+              <SponsorsForm spon={meta.spon} />
+            )}
           </Modal>
 
           <SponsorsList sponsors={sponsors} />

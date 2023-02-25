@@ -11,6 +11,10 @@ import calTransaction from '../../utils/statistics';
 import subtract from '../../utils/subtraction';
 import DataGraph from './DataGraph';
 import UserProfileStats from './UserProfileStats';
+import Modal from '../Shared/Modal';
+import Percent from '../Percents';
+import { showModal as showModalAction } from '../../redux/actions/modalActions';
+import modalTypes from '../../redux/types/modalTypes';
 import { userProfile as userProfileAction } from '../../redux/actions/profileActions';
 import { getSponsors as getSponsorsAction } from '../../redux/actions/sponsorsActions';
 import './profile.css';
@@ -23,6 +27,8 @@ const Profile = ({
   profile,
   getSponsors,
   isPremium,
+  showModal,
+  modalType,
   // createdAt
 }) => {
   const [expResult, setExpResult] = useState([]);
@@ -38,6 +44,10 @@ const Profile = ({
     navigate('/suscription');
   }
 
+  const showViewModal = () => {
+    showModal(modalTypes.VIEW_PERCENTS);
+  };
+
   // const daysSinceCreatedAt = (datee) => {
   //   const currentTime = Date.now();
   //   const difference = currentTime - datee;
@@ -46,18 +56,17 @@ const Profile = ({
   // }
 
   const isPremiumUser = (premium) => {
-    const contenedor = document.getElementById("susc");
+    const contenedor = document.getElementById('susc');
     if (contenedor !== null) {
       setTimeout(() => {
         if (premium) {
-          contenedor.style.display = "none";
+          contenedor.style.display = 'none';
         } else {
-          contenedor.style.display = "block";
+          contenedor.style.display = 'block';
         }
       }, 100);
     }
   };
-  
 
   useEffect(() => {
     getSponsors();
@@ -108,7 +117,7 @@ const Profile = ({
       setBalanceResult(calcBalance);
     }
   }, [profile?.income]);
-  
+
   function handleClickExp() {
     navigate('/expenses');
   }
@@ -210,21 +219,38 @@ const Profile = ({
             onClick={handleClickExp}
             type="button"
           >
-            <span>Expenses History</span>
+            <span>Expenses History 💸</span>
           </button>
           <button
             className="customBtn btn1"
             type="button"
             onClick={handleClickInc}
           >
-            <span>Income History</span>
+            <span>Income History 💰</span>
+          </button>
+          <button
+            className="customBtn btn1"
+            onClick={() => showViewModal()}
+            type="button"
+          >
+            <span>Spending Percent 💯</span>
           </button>
         </div>
-        <div id='susc'>
+        <Modal>{modalType === 'VIEW_PERCENTS' && <Percent />}</Modal>
+        <div id="susc">
           {isPremiumUser(isPremium)}
           {/* <p>Your subscription expired {(daysSinceCreatedAt(date)-21)} days ago</p> */}
           <p>Your subscription expired</p>
-          <p>To renew click <button type="button" onClick={suscriptionClick} id="suscriptionButton">here</button></p>
+          <p>
+            To renew click{' '}
+            <button
+              type="button"
+              onClick={suscriptionClick}
+              id="suscriptionButton"
+            >
+              here
+            </button>
+          </p>
         </div>
       </div>
     </div>
@@ -236,6 +262,7 @@ const mapDispatchToProps = (dispatch) => {
     {
       userProfile: userProfileAction,
       getSponsors: getSponsorsAction,
+      showModal: showModalAction,
     },
     dispatch
   );
@@ -243,6 +270,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => ({
   email: state.auth.email,
+  modalType: state.modal.modalType,
   createdAt: state.profile.createdAt,
   expenses: state.profile.expenses,
   income: state.profile.income,
@@ -250,7 +278,7 @@ const mapStateToProps = (state) => ({
   userId: state.auth._id,
   isPremium: state.profile.isPremium,
   isAdmin: state.auth.isAdmin,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

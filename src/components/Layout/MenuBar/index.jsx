@@ -9,17 +9,10 @@ import { BiHomeCircle, BiLogOut } from 'react-icons/bi';
 import { IoBagAddSharp } from 'react-icons/io5';
 import { FcAdvertising } from 'react-icons/fc';
 import { GoGraph } from 'react-icons/go';
-import { FaRegMoneyBillAlt, FaPercent } from 'react-icons/fa';
+import { FaRegMoneyBillAlt } from 'react-icons/fa';
 import { startLogout as startLogoutAction } from '../../../redux/actions/authUsersActions';
-import { showModal as showModalAction } from '../../../redux/actions/modalActions';
-import modalTypes from '../../../redux/types/modalTypes';
-import Modal from '../../Shared/Modal';
-import Percent from '../../Percents';
 
-const MenuBar = ({ startLogout, isAdmin, modalType, showModal }) => {
-  const showViewModal = () => {
-    showModal(modalTypes.VIEW_PERCENTS);
-  };
+const MenuBar = ({ startLogout, isAdmin }) => {
   const admin = JSON.parse(localStorage.getItem('admin'));
   const onLogout = (values) => {
     startLogout(values);
@@ -87,8 +80,8 @@ const MenuBar = ({ startLogout, isAdmin, modalType, showModal }) => {
               </Tooltip>
             </Link>
           </li>
-          <li>
-            <Link to="/profile">
+          {/* <li>
+            <Link to="/">
               <Tooltip title="Spending Percent">
                 <Button>
                   <FaPercent
@@ -104,7 +97,7 @@ const MenuBar = ({ startLogout, isAdmin, modalType, showModal }) => {
               </Tooltip>
             </Link>
             <Modal>{modalType === 'VIEW_PERCENTS' && <Percent />}</Modal>
-          </li>
+          </li> */}
           <li>
             <Link to="/reports">
               <Tooltip title="Reports">
@@ -142,7 +135,6 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       startLogout: startLogoutAction,
-      showModal: showModalAction,
     },
     dispatch
   );
@@ -151,7 +143,6 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => ({
   authenticated: state.auth.authenticated,
   isAdmin: state.auth.isAdmin,
-  modalType: state.modal.modalType,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MenuBar);

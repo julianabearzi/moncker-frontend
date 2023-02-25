@@ -78,7 +78,7 @@ const IncomeForm = ({
           user: userId,
         }}
         render={({ handleSubmit, form, submitting, pristine }) => (
-          <form onSubmit={handleSubmit} className="formContainer">
+          <form onSubmit={handleSubmit} className="formContainerIncome">
             <p className="addText"> {inc ? 'Update Income' : 'Add Income'}</p>
             <div className="textInput">
               <Field

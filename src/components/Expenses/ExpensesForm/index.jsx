@@ -116,7 +116,7 @@ const ExpensesForm = ({
           user: userId,
         }}
         render={({ handleSubmit, form, submitting, pristine }) => (
-          <form onSubmit={handleSubmit} className="formContainer">
+          <form onSubmit={handleSubmit} className="formContainerExpenses">
             <p className="addText">
               {' '}
               {exp ? 'Update Expenses' : 'Add Expenses'}
