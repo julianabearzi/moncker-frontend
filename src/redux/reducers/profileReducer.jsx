@@ -10,7 +10,7 @@ const initialState = {
   income: [],
   expenses: [],
   createdAt: false,
-  isPremium: false,
+  isPremium: null,
   _id: false
 };
 
@@ -22,7 +22,7 @@ const authReducer = (state = initialState, action) => {
         isLoading: true,
         error: false,
         createdAt: false,
-        isPremium: false,
+        isPremium: null,
         id: false
       };
     case USER_PROFILE_FULFILLED:

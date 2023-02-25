@@ -15,6 +15,14 @@
   color: white;
 }
 
+.susc {
+  display: none;
+}
+
+.circular {
+  display: block;
+}
+
 .profileContainerUp {
   display: flex;
   flex-direction: row;
