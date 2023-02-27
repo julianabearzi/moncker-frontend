@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import LinearProgress from '@mui/material/LinearProgress';
@@ -18,9 +18,38 @@ const Income = ({
   userProfile,
   income,
   meta,
+  sponsors,
+  isPremium,
+  createdAt,
 }) => {
+  const [imgSponsor, setImgSponsor] = useState('');
+  const [imgSponsorTwo, setImgSponsorTwo] = useState('');
+  const [imgSponsorThree, setImgSponsorThree] = useState('');
+  function calcularDiasPasados(fecha) {
+    const fechaDada = new Date(fecha);
+    const fechaActual = new Date();
+    const diferenciaMilisegundos = fechaActual.getTime() - fechaDada.getTime();
+    const diasPasados = Math.round(diferenciaMilisegundos / 86400000);
+    return diasPasados;
+  }
   useEffect(() => {
     userProfile();
+    let aleatorio = sponsors[Math.floor(Math.random() * sponsors.length)];
+    const { image } = aleatorio;
+    const img = image;
+    setImgSponsor(img);
+  }, []);
+  useEffect(() => {
+    let aleatorioTwo = sponsors[Math.floor(Math.random() * sponsors.length)];
+    const { image } = aleatorioTwo;
+    const imgTwo = image;
+    setImgSponsorTwo(imgTwo);
+  }, []);
+  useEffect(() => {
+    let aleatorioThree = sponsors[Math.floor(Math.random() * sponsors.length)];
+    const { image } = aleatorioThree;
+    const imgThree = image;
+    setImgSponsorThree(imgThree);
   }, []);
 
   const showAddModal = () => {
@@ -28,7 +57,7 @@ const Income = ({
   };
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
       {isLoading ? (
         <LinearProgress color="success" />
       ) : (
@@ -46,6 +75,34 @@ const Income = ({
           </Modal>
 
           <IncomeList income={income} />
+        </div>
+      )}
+      {isPremium === false && calcularDiasPasados(createdAt) > 7 && (
+        <div
+          style={{
+            padding: '1rem',
+            marginRight: '10rem',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <p style={{ color: 'white' }}>Advertisements</p>
+          <img
+            alt="adv"
+            src={imgSponsor}
+            style={{ width: '120px', height: '100px', paddingTop: '1rem' }}
+          />
+          <img
+            alt="adv"
+            src={imgSponsorTwo}
+            style={{ width: '120px', height: '100px', paddingTop: '4rem' }}
+          />
+          <img
+            alt="adv"
+            src={imgSponsorThree}
+            style={{ width: '120px', height: '100px', paddingTop: '4rem' }}
+          />
         </div>
       )}
     </div>
@@ -66,6 +123,9 @@ const mapStateToProps = (state) => ({
   modalType: state.modal.modalType,
   meta: state.modal.meta,
   isLoading: state.profile.isLoading,
+  sponsors: state.sponsors.sponsorsList,
+  isPremium: state.profile.isPremium,
+  createdAt: state.profile.createdAt,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Income);

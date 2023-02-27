@@ -9,14 +9,24 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import IncomeItem from '../IncomeItem';
 
-const IncomeList = ({ income, userId }) => {
+const IncomeList = ({ income, userId, isPremium, createdAt }) => {
+  function calcularDiasPasados(fecha) {
+    const fechaDada = new Date(fecha);
+    const fechaActual = new Date();
+    const diferenciaMilisegundos = fechaActual.getTime() - fechaDada.getTime();
+    const diasPasados = Math.round(diferenciaMilisegundos / 86400000);
+    return diasPasados;
+  }
   return (
     <div>
       <Paper
         style={{
           overflow: 'auto',
           height: '70vh',
-          width: '70vw',
+          width:
+            isPremium === false && calcularDiasPasados(createdAt) > 7
+              ? '40vw'
+              : '70vw',
           textAlign: 'center',
           marginRight: '5rem',
         }}
@@ -50,6 +60,8 @@ IncomeList.propTypes = {
 
 const mapStateToProps = (state) => ({
   userId: state.auth._id,
+  isPremium: state.profile.isPremium,
+  createdAt: state.profile.createdAt,
 });
 
 export default connect(mapStateToProps, null)(IncomeList);

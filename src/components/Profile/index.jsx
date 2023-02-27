@@ -12,6 +12,7 @@ import subtract from '../../utils/subtraction';
 import DataGraph from './DataGraph';
 import UserProfileStats from './UserProfileStats';
 import Modal from '../Shared/Modal';
+// import Advertisement from '../Advertisement';
 import Percent from '../Percents';
 import { showModal as showModalAction } from '../../redux/actions/modalActions';
 import modalTypes from '../../redux/types/modalTypes';
@@ -31,6 +32,7 @@ const Profile = ({
   modalType,
   // createdAt
   createdAt,
+  sponsors,
 }) => {
   const [expResult, setExpResult] = useState([]);
   const [incResult, setIncResult] = useState([]);
@@ -135,7 +137,9 @@ const Profile = ({
     navigate('/income');
   }
   return (
-    <div>
+    <div
+      style={{ display: 'flex', flexDirection: 'row', marginRight: '10rem' }}
+    >
       <div className="profileContainer">
         <div className="profileContainerUp">
           <div className="profileContainerUpLeft">
@@ -320,6 +324,7 @@ const mapStateToProps = (state) => ({
   isPremium: state.profile.isPremium,
   isAdmin: state.auth.isAdmin,
   isLoading: state.isLoading,
+  sponsors: state.sponsors.sponsorsList,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

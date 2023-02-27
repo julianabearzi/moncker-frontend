@@ -63,3 +63,9 @@ h2 {
   text-align: center;
   opacity: 80%;
 }
+.wrapperExp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
